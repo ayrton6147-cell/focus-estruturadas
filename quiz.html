@@ -299,6 +299,10 @@ window.QZ_reset=()=>{cur=0;ans=false;lead={};D={cap:0,exp:0,pain:0,adv:0,ks:0};$
 render();
 })();
 </script>
+<script>
+/* reporta a altura para a LP que faz o embed (auto-resize do iframe) */
+(function(){function ph(){var h=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);parent.postMessage({focusFunil:'height',height:h},'*');}window.addEventListener('load',ph);if(window.ResizeObserver)new ResizeObserver(ph).observe(document.body);setInterval(ph,700);}());
+</script>
 </div>
 </body>
 </html>
