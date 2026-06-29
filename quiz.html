@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Invest — Seu perfil para operações estruturadas</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<style>
+  body{margin:0;background:#070d18;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px}
+  #host{width:100%;max-width:680px}
+</style>
+</head>
+<body>
+<div id="host">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+.QZ *{box-sizing:border-box;margin:0;padding:0}
+.QZ{--nv:#0A1628;--nv2:#132240;--nv3:#0F1B30;--gd:#C9A84C;--gd-l:#F5E6B8;--gd-d:#8B6914;--tx:#E7ECF5;--tx2:#9DAAC0;--hl:#25324a;--ok:#5DCAA5;--warn:#EF9F27;font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums}
+.stage{background:var(--nv);border:1px solid rgba(201,168,76,.18);border-radius:18px;overflow:hidden;position:relative;color:var(--tx);padding-bottom:6px}
+.stage::before{content:'';position:absolute;top:0;left:0;right:0;height:160px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(201,168,76,.10) 0%,transparent 70%);pointer-events:none}
+.fade-in{animation:fadeUp .5s cubic-bezier(.4,0,.2,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes grow{from{width:0}}
+
+.head{text-align:center;padding:1.6rem 1.5rem .4rem;position:relative}
+.head .eye{font-size:11px;letter-spacing:2px;color:var(--gd);font-weight:600;margin-bottom:10px}
+.head h1{font-size:21px;font-weight:600;color:#fff;line-height:1.35;margin-bottom:6px}
+.head p{font-size:13px;color:var(--tx2);max-width:440px;margin:0 auto}
+
+.steps{display:flex;align-items:center;justify-content:center;padding:16px 0 4px}
+.sp{display:flex;align-items:center;gap:6px}
+.sp-d{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--hl);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--tx2);background:var(--nv2);transition:all .3s}
+.sp-d.on{border-color:var(--gd);color:var(--gd);background:rgba(201,168,76,.1)}
+.sp-d.ok{border-color:var(--gd);background:var(--gd);color:var(--nv)}
+.sp-t{font-size:10.5px;color:var(--tx2);transition:color .3s}
+.sp-t.on{color:var(--gd-l)}
+.sp-ln{width:22px;height:1.5px;background:var(--hl);margin:0 7px;transition:background .3s}
+.sp-ln.ok{background:var(--gd)}
+
+.pb{height:3px;background:var(--nv3);border-radius:2px;margin:8px 1.5rem 0;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--gd-d),var(--gd));border-radius:2px;transition:width .5s ease}
+
+.body{padding:1.1rem 1.5rem 1.5rem}
+.card{background:var(--nv2);border:1px solid var(--hl);border-radius:14px;padding:1.4rem;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gd-d),var(--gd),var(--gd-l))}
+.qtag{display:inline-block;font-size:11px;padding:3px 11px;border-radius:99px;margin-bottom:11px;letter-spacing:.3px;font-weight:500}
+.qtag.perfil{background:rgba(55,138,221,.14);color:#7FB5EC}
+.qtag.conhecimento{background:rgba(127,119,221,.16);color:#AFA9EC}
+.qt{font-size:17px;font-weight:600;color:#fff;line-height:1.45;margin-bottom:5px}
+.qs{font-size:12.5px;color:var(--tx2);line-height:1.55;margin-bottom:1.1rem}
+.opts{display:flex;flex-direction:column;gap:8px}
+.ob{text-align:left;padding:12px 14px;border-radius:10px;border:1px solid var(--hl);background:var(--nv3);cursor:pointer;font-size:14px;color:var(--tx);transition:all .15s;display:flex;align-items:center;gap:11px;line-height:1.4;font-family:inherit}
+.ob:hover:not(.lk){border-color:rgba(201,168,76,.5);transform:translateX(3px)}
+.ob .le{width:26px;height:26px;border-radius:50%;background:var(--nv);border:1px solid var(--hl);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--tx2);flex-shrink:0;transition:all .2s}
+.ob.sel{border-color:var(--gd);background:rgba(201,168,76,.1)}
+.ob.sel .le{background:var(--gd);border-color:var(--gd);color:var(--nv)}
+.ob.ok{border-color:var(--ok);background:rgba(93,202,165,.1)}
+.ob.ok .le{background:var(--ok);border-color:var(--ok);color:var(--nv)}
+.ob.no{border-color:#E24B4A;background:rgba(226,75,74,.1)}
+.ob.no .le{background:#E24B4A;border-color:#E24B4A;color:#fff}
+.ob.lk{cursor:default}
+.ex{margin-top:11px;padding:11px 14px;background:var(--nv3);border-left:3px solid var(--gd);border-radius:8px;font-size:13px;color:var(--tx2);line-height:1.6;display:none}
+.nr{display:flex;justify-content:flex-end;margin-top:1rem}
+.nr button{display:none}
+
+.btn-gold{background:linear-gradient(180deg,var(--gd) 0%,var(--gd-d) 100%);color:var(--nv);border:none;padding:12px 24px;border-radius:10px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:filter .15s,transform .15s;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.btn-gold:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}
+.btn-gold:disabled{opacity:.4;cursor:not-allowed}
+.btn-ghost{background:transparent;border:1px solid var(--hl);color:var(--tx2);padding:11px 18px;border-radius:10px;font-size:14px;font-family:inherit;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-ghost:hover{border-color:var(--gd);color:var(--gd-l)}
+
+.cap{text-align:center}
+.cap .ico{width:50px;height:50px;border-radius:50%;background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 13px;color:var(--gd)}
+.cap h3{font-size:18px;font-weight:600;color:#fff;margin-bottom:5px}
+.cap p{font-size:13px;color:var(--tx2);line-height:1.55;margin-bottom:1.2rem}
+.field{text-align:left;margin-bottom:11px}
+.field label{font-size:12px;color:var(--tx2);font-weight:500;display:block;margin-bottom:5px}
+.field input{width:100%;background:var(--nv3);border:1px solid var(--hl);border-radius:9px;padding:12px 14px;font-size:15px;color:var(--tx);font-family:inherit;outline:none}
+.field input:focus{border-color:var(--gd)}
+.field .err{font-size:11.5px;color:#E24B4A;margin-top:4px;display:none}
+.lock-note{display:flex;align-items:center;justify-content:center;gap:6px;font-size:11.5px;color:var(--tx2);opacity:.75;margin-top:13px}
+
+.res{position:relative}
+.res .rtop{text-align:center}
+.rtag{display:inline-flex;align-items:center;gap:5px;padding:4px 13px;border-radius:99px;font-size:12px;font-weight:500;margin-bottom:12px}
+.rtag.hot{background:rgba(93,202,165,.16);color:var(--ok)}
+.rtag.warm{background:rgba(55,138,221,.16);color:#7FB5EC}
+.rtag.cold{background:rgba(239,159,39,.14);color:var(--warn)}
+.res h2{font-size:21px;font-weight:600;color:#fff;line-height:1.35;margin-bottom:8px}
+.res h2 em{font-style:normal;color:var(--gd)}
+.res .rsub{font-size:13.5px;color:var(--tx2);line-height:1.65;max-width:500px;margin:0 auto 1.3rem}
+.gauges{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+.g{background:var(--nv2);border:1px solid var(--hl);border-radius:11px;padding:12px 10px;text-align:center}
+.g .gv{font-size:21px;font-weight:600;color:#fff}
+.g .gl{font-size:10.5px;color:var(--tx2);margin-top:1px}
+.g .gm{height:5px;background:var(--nv);border-radius:3px;overflow:hidden;margin-top:8px}
+.g .gmf{height:100%;border-radius:3px;animation:grow .8s ease}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.di{background:var(--nv2);border:1px solid var(--hl);border-radius:10px;padding:10px 12px;text-align:left}
+.di .dl{font-size:10.5px;color:var(--tx2);margin-bottom:2px}
+.di .dv{font-size:13px;font-weight:500;color:#fff}
+.recbox{background:var(--nv2);border:1px solid var(--hl);border-radius:11px;padding:14px 16px;margin-bottom:14px;text-align:left}
+.recbox h4{font-size:13px;font-weight:600;color:var(--gd-l);margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.recbox ul{margin:0;padding-left:18px}
+.recbox li{font-size:13px;color:var(--tx);line-height:1.7}
+.urg{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);border-radius:10px;padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--gd-l);line-height:1.5}
+.urg i{flex-shrink:0}
+.ctawrap{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.disc{font-size:10px;color:var(--tx2);opacity:.65;text-align:center;margin-top:16px;line-height:1.5;border-top:1px solid var(--hl);padding-top:13px}
+@media (max-width:480px){.sp-t{display:none}.gauges{grid-template-columns:1fr 1fr 1fr}}
+@media (prefers-reduced-motion:reduce){.fade-in,.g .gmf{animation:none}}
+</style>
+
+<div class="QZ" id="qz">
+  <div class="stage">
+    <div class="head">
+      <div class="eye">FOCUS INVEST · OPERAÇÕES ESTRUTURADAS</div>
+      <h1>Descubra seu perfil para operações estruturadas</h1>
+      <p>7 perguntas rápidas para uma recomendação personalizada</p>
+    </div>
+    <div class="steps" id="steps"></div>
+    <div class="pb"><div class="pf" id="prog" style="width:0%"></div></div>
+    <div class="body">
+      <div id="qa"></div>
+      <div class="nr"><button class="btn-gold" id="nxt" onclick="QZ_next()">Próxima <i class="ti ti-arrow-right"></i></button></div>
+      <div id="cap" style="display:none"></div>
+      <div id="ra" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const Q=[
+  {s:0,tag:'perfil',q:'Qual o volume aproximado do seu patrimônio investido atualmente?',sub:'Operações estruturadas exigem um patamar mínimo para viabilizar a montagem.',
+   opts:['Menos de R$ 50 mil','Entre R$ 50 mil e R$ 100 mil','Entre R$ 100 mil e R$ 500 mil','Acima de R$ 500 mil'],sc:{cap:[0,1,3,4]}},
+  {s:0,tag:'perfil',q:'Qual a sua experiência com renda variável?',sub:'Isso nos ajuda a calibrar a complexidade da recomendação.',
+   opts:['Nunca investi em ações','Já investi, mas saí por conta dos riscos','Invisto regularmente, mas sem proteção','Invisto e conheço opções/derivativos'],sc:{exp:[0,1,3,4]}},
+  {s:0,tag:'perfil',q:'Qual a sua maior preocupação em relação a investir em ações?',sub:'Entender a sua dor principal nos permite recomendar a melhor abordagem.',
+   opts:['Não saber o momento certo de comprar ou vender','Risco de perder capital em uma queda forte','Sentir que preciso de orientação profissional','Não tenho grandes preocupações'],sc:{pain:[2,3,2,0]}},
+  {s:0,tag:'perfil',q:'Você já tem um assessor de investimentos?',sub:'Saber isso nos ajuda a entender o nível de suporte que você recebe hoje.',
+   opts:['Não, invisto por conta própria','Tenho, mas não estou satisfeito','Tenho e estou satisfeito, mas quero mais opções','Não tenho e estou buscando um'],sc:{adv:[1,3,1,4]}},
+  {s:1,tag:'conhecimento',q:'O que são derivativos no mercado financeiro?',
+   opts:['Ações de empresas de tecnologia','Fundos que replicam índices da bolsa','Instrumentos financeiros usados para proteção e gestão de risco','Títulos de renda fixa indexados ao IPCA'],
+   correct:2,explain:'Derivativos são instrumentos criados para proteção (hedge). Incluem opções, futuros e swaps — usados por grandes bancos e investidores para controlar risco.'},
+  {s:1,tag:'conhecimento',q:'Uma operação com "capital protegido" significa que:',
+   opts:['Você nunca terá nenhum custo na operação','Seus ganhos são garantidos pelo governo','Seu capital investido é preservado mesmo se o ativo cair','A corretora cobre 100% de qualquer prejuízo'],
+   correct:2,explain:'Capital protegido garante que, no vencimento, você recebe pelo menos o valor investido — a proteção contra queda é montada com derivativos, sem depender de governo ou corretora.'},
+  {s:1,tag:'conhecimento',q:'É possível montar uma operação estruturada sem ter ações em carteira?',
+   opts:['Não, é obrigatório possuir as ações','Sim, usando garantias como CDBs ou títulos públicos','Apenas bancos e fundos podem fazer isso','Sim, mas apenas no mercado americano'],
+   correct:1,explain:'Existem estruturas "com compra" que não exigem custódia do ativo — basta depositar garantias reais (CDBs, Tesouro, dinheiro). Isso amplia muito as possibilidades para o investidor.'}
+];
+const PH=[{l:'Perfil',i:'ti-user'},{l:'Conhecimento',i:'ti-bulb'},{l:'Dados',i:'ti-lock'},{l:'Resultado',i:'ti-chart-bar'}];
+let cur=0,ans=false,lead={};
+let D={cap:0,exp:0,pain:0,adv:0,ks:0};
+
+function phaseOf(i){return i<4?0:1}
+function steps(){
+  const el=$('steps');
+  const sec=cur<Q.length?phaseOf(cur):(lead.name?3:2);
+  el.innerHTML=PH.map((p,i)=>{
+    let st='';
+    if(cur>=Q.length){ if(i<2)st='ok'; else if(i===2)st=lead.name?'ok':'on'; else if(i===3)st=lead.name?'on':''; }
+    else { const cp=phaseOf(cur); if(i<cp)st='ok'; else if(i===cp)st='on'; }
+    const dot=st==='ok'?`<span class="sp-d ok"><i class="ti ti-check" style="font-size:13px"></i></span>`:`<span class="sp-d ${st}">${i+1}</span>`;
+    const ln=i<PH.length-1?`<span class="sp-ln ${st==='ok'?'ok':''}"></span>`:'';
+    return `<div class="sp">${dot}<span class="sp-t ${st}">${p.l}</span></div>${ln}`;
+  }).join('');
+}
+
+function render(){
+  steps();
+  const q=Q[cur],L=['A','B','C','D'],a=$('qa');
+  a.classList.remove('fade-in');void a.offsetWidth;a.classList.add('fade-in');
+  a.innerHTML=`<div class="card">
+    <span class="qtag ${q.tag}">${q.tag==='perfil'?'Perfil financeiro':'Conhecimento'} · ${cur+1}/${Q.length}</span>
+    <div class="qt">${q.q}</div>${q.sub?`<div class="qs">${q.sub}</div>`:''}
+    <div class="opts">${q.opts.map((o,i)=>`<button class="ob" data-i="${i}" onclick="QZ_pick(${i})"><span class="le">${L[i]}</span><span>${o}</span></button>`).join('')}</div>
+    ${q.explain?`<div class="ex" id="expl"><i class="ti ti-info-circle" style="margin-right:4px"></i>${q.explain}</div>`:''}
+  </div>`;
+  $('nxt').style.display='none';
+  $('prog').style.width=Math.round(cur/Q.length*100)+'%';
+  ans=false;
+}
+
+window.QZ_pick=i=>{
+  if(ans)return;ans=true;
+  const q=Q[cur],bs=document.querySelectorAll('.ob');
+  if(q.s===0){
+    bs.forEach(b=>{b.classList.add('lk');if(+b.dataset.i===i)b.classList.add('sel')});
+    Object.keys(q.sc).forEach(k=>D[k]=q.sc[k][i]);
+    setTimeout(()=>{if(cur<Q.length-1){cur++;render()}else showCap()},380);
+  }else{
+    bs.forEach(b=>{b.classList.add('lk');const j=+b.dataset.i;if(j===q.correct)b.classList.add('ok');else if(j===i)b.classList.add('no')});
+    if(i===q.correct)D.ks++;
+    const e=$('expl');if(e)e.style.display='block';
+    if(cur<Q.length-1)$('nxt').style.display='inline-flex';
+    else setTimeout(showCap,800);
+  }
+};
+window.QZ_next=()=>{cur++;render()};
+
+function showCap(){
+  $('qa').style.display='none';$('nxt').style.display='none';$('prog').style.width='100%';steps();
+  const c=$('cap');c.style.display='block';c.classList.add('fade-in');
+  c.innerHTML=`<div class="card cap">
+    <div class="ico"><i class="ti ti-lock-open" style="font-size:22px"></i></div>
+    <h3>Seu resultado está pronto</h3>
+    <p>Preencha seus dados para liberar a análise personalizada e, se fizer sentido, receber o contato de um especialista.</p>
+    <div class="field"><label>Seu nome</label><input type="text" id="c-name" placeholder="Como prefere ser chamado"></div>
+    <div class="field"><label>WhatsApp (com DDD)</label><input type="tel" id="c-phone" placeholder="(51) 99999-9999"><div class="err" id="e-phone">Informe um número válido com DDD</div></div>
+    <div class="field"><label>Email</label><input type="email" id="c-email" placeholder="seu@email.com"><div class="err" id="e-email">Informe um email válido</div></div>
+    <button class="btn-gold" style="width:100%;margin-top:6px" onclick="QZ_submit()">Ver meu resultado <i class="ti ti-arrow-right"></i></button>
+    <div class="lock-note"><i class="ti ti-shield-check" style="font-size:14px"></i> Seus dados estão seguros e não serão compartilhados</div>
+  </div>`;
+}
+
+window.QZ_submit=()=>{
+  const n=$('c-name').value.trim(),p=$('c-phone').value.trim(),e=$('c-email').value.trim();
+  let ok=true;$('e-phone').style.display='none';$('e-email').style.display='none';
+  if(p.replace(/\D/g,'').length<10){$('e-phone').style.display='block';ok=false}
+  if(!e||!e.includes('@')||!e.includes('.')){$('e-email').style.display='block';ok=false}
+  if(!ok)return;
+  lead={name:n||'Investidor',phone:p,email:e};
+  $('cap').style.display='none';showRes();
+};
+
+function showRes(){
+  steps();
+  const kPct=Math.round(D.ks/3*100);
+  const prof=D.cap+D.exp+D.adv,profPct=Math.round(prof/12*100);
+  const qualified=D.cap>=3;
+  const hot=qualified&&(D.adv>=3||D.pain>=2)&&profPct>=40;
+  const warm=qualified&&!hot;
+  let tag,tagC,title,desc,accent;
+  if(hot){tag='Perfil prioritário';tagC='hot';accent='var(--ok)';title=`${lead.name.split(' ')[0]}, você tem o perfil ideal`;desc='Patrimônio compatível, consciência dos riscos e busca por orientação profissional. As operações estruturadas foram desenhadas para investidores como você — que querem proteger e potencializar o que já construíram.';}
+  else if(warm){tag='Perfil compatível';tagC='warm';accent='#378ADD';title=`${lead.name.split(' ')[0]}, as estruturadas fazem sentido para você`;desc='Você tem os recursos para acessar essas estratégias. Com a orientação certa, pode usar derivativos a seu favor — sem precisar entender a mecânica por trás.';}
+  else{tag='Perfil em construção';tagC='cold';accent='var(--warn)';title=`${lead.name.split(' ')[0]}, estamos preparando o terreno`;desc='Operações estruturadas ficam mais acessíveis a partir de R$ 100 mil investidos. A boa notícia: você já está se informando — e esse é o primeiro passo. Assista o vídeo do André para entender como essas estratégias funcionam.';}
+
+  const capL=['Menos de R$ 50 mil','R$ 50k – R$ 100k','R$ 100k – R$ 500k','Acima de R$ 500k'];
+  const expL=['Sem experiência em RV','Experiência interrompida','Investe sem proteção','Opera com derivativos'];
+  const advL=['Sem assessor','Insatisfeito com assessor','Com assessor, quer mais','Buscando assessor'];
+
+  let recs=[];
+  if(hot||warm){
+    if(D.exp<=2)recs.push('Você não precisa entender derivativos — o time Focus monta e gerencia a operação para você');
+    if(D.pain>=2)recs.push('Proteção de capital é a base de toda operação estruturada — seu perfil se encaixa perfeitamente');
+    if(D.adv>=3)recs.push('A assessoria da Focus é gratuita — a única exigência é ter conta na XP Investimentos');
+    recs.push('Assista o vídeo com casos reais (Banco do Brasil, Vale, Lojas Americanas)');
+    recs.push('Agende uma conversa gratuita com o time do André');
+  }else{
+    recs.push('Assista o vídeo para entender como grandes investidores usam essas estratégias');
+    recs.push('Continue construindo patrimônio — a partir de R$ 100 mil essas operações ficam acessíveis');
+    recs.push('Acompanhe os conteúdos da Focalise Educacional');
+  }
+
+  const gc=p=>p>=66?'var(--ok)':p>=40?'#378ADD':'var(--warn)';
+  const necV=D.pain>=2?'Alto':D.pain>=1?'Médio':'Baixo',necP=D.pain>=2?90:D.pain>=1?50:20;
+
+  const r=$('ra');r.style.display='block';r.classList.add('fade-in');
+  r.innerHTML=`<div class="card res">
+    <div class="rtop">
+      <span class="rtag ${tagC}"><i class="ti ti-${hot?'flame':warm?'trending-up':'seedling'}" style="font-size:13px"></i> ${tag}</span>
+      <h2>${title.replace(lead.name.split(' ')[0],'<em>'+lead.name.split(' ')[0]+'</em>')}</h2>
+      <p class="rsub">${desc}</p>
+    </div>
+    <div class="gauges">
+      <div class="g"><div class="gv">${kPct}%</div><div class="gl">Conhecimento</div><div class="gm"><div class="gmf" style="width:${kPct}%;background:${gc(kPct)}"></div></div></div>
+      <div class="g"><div class="gv">${profPct}%</div><div class="gl">Perfil financeiro</div><div class="gm"><div class="gmf" style="width:${profPct}%;background:${gc(profPct)}"></div></div></div>
+      <div class="g"><div class="gv">${necV}</div><div class="gl">Necessidade</div><div class="gm"><div class="gmf" style="width:${necP}%;background:${gc(necP)}"></div></div></div>
+    </div>
+    <div class="dgrid">
+      <div class="di"><div class="dl">Patrimônio</div><div class="dv">${capL[D.cap]}</div></div>
+      <div class="di"><div class="dl">Experiência</div><div class="dv">${expL[D.exp]}</div></div>
+      <div class="di"><div class="dl">Assessoria</div><div class="dv">${advL[D.adv]}</div></div>
+      <div class="di"><div class="dl">Acertos</div><div class="dv">${D.ks} de 3</div></div>
+    </div>
+    <div class="recbox"><h4><i class="ti ti-target-arrow" style="font-size:16px"></i> Recomendações para o seu perfil</h4><ul>${recs.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    ${(hot||warm)?`<div class="urg"><i class="ti ti-clock" style="font-size:16px"></i>O André acompanha pessoalmente os agendamentos — as vagas de atendimento são limitadas.</div>`:''}
+    <div class="ctawrap">
+      <button class="btn-ghost" onclick="QZ_reset()"><i class="ti ti-refresh" style="font-size:15px"></i> Refazer</button>
+      ${(hot||warm)
+        ?`<button class="btn-gold" onclick="QZ_go('${hot?'prioritario':'compativel'}')">Agendar conversa gratuita <i class="ti ti-arrow-right"></i></button>`
+        :`<button class="btn-gold" onclick="QZ_video()">Assistir o vídeo do André <i class="ti ti-player-play"></i></button>`}
+    </div>
+    <div class="disc">Focus Invest · Escritório credenciado XP Investimentos · CNPJ 00.000.000/0001-00<br>Resultados passados não garantem resultados futuros.</div>
+  </div>`;
+}
+
+window.QZ_go=perfil=>{
+  const qs=new URLSearchParams({n:lead.name,w:lead.phone,e:lead.email,p:perfil}).toString();
+  location.href='agendamento.html?'+qs;
+};
+window.QZ_video=()=>{window.open('https://focusinvestimentos.com/estruturadas/','_blank')};
+window.QZ_reset=()=>{cur=0;ans=false;lead={};D={cap:0,exp:0,pain:0,adv:0,ks:0};$('ra').style.display='none';$('cap').style.display='none';$('qa').style.display='block';$('prog').style.width='0%';render()};
+
+render();
+})();
+</script>
+</div>
+</body>
+</html>

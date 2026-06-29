@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Invest — Fluxo de Agendamento (Estruturadas)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<style>
+  body{margin:0;background:#070d18;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px}
+  #host{width:100%;max-width:680px}
+</style>
+</head>
+<body>
+<div id="host">
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Fluxo de agendamento premium após o quiz de operações estruturadas — escolha de dia, horário e confirmação anti no-show</h2>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+.SCH *{box-sizing:border-box;margin:0;padding:0}
+.SCH{--nv:#0A1628;--nv2:#132240;--nv3:#0F1B30;--gd:#C9A84C;--gd-l:#F5E6B8;--gd-d:#8B6914;--tx:#E7ECF5;--tx2:#9DAAC0;--hl:#25324a;font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;padding:.5rem 0}
+.stage{background:var(--nv);border:1px solid rgba(201,168,76,.18);border-radius:18px;overflow:hidden;position:relative;color:var(--tx)}
+.stage::before{content:'';position:absolute;top:0;left:0;right:0;height:160px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(201,168,76,.10) 0%,transparent 70%);pointer-events:none}
+
+.trig{padding:1.75rem 1.5rem;text-align:center;position:relative}
+.trig .rtag{display:inline-flex;align-items:center;gap:5px;padding:4px 13px;border-radius:99px;font-size:11px;font-weight:500;letter-spacing:.4px;background:rgba(93,202,165,.14);color:#7BDCB5;border:1px solid rgba(93,202,165,.25)}
+.trig h3{font-size:18px;font-weight:500;color:#fff;margin:14px 0 4px}
+.trig h3 em{font-style:normal;color:var(--gd)}
+.trig p{font-size:13px;color:var(--tx2);max-width:420px;margin:0 auto 18px;line-height:1.6}
+.hint{font-size:11px;color:var(--tx2);opacity:.7;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:5px}
+
+.btn-gold{background:linear-gradient(180deg,var(--gd) 0%,var(--gd-d) 100%);color:var(--nv);border:none;padding:12px 24px;border-radius:10px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:filter .15s,transform .15s;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.btn-gold:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}
+.btn-gold:disabled{opacity:.4;cursor:not-allowed}
+.btn-ghost{background:transparent;border:1px solid var(--hl);color:var(--tx2);padding:11px 18px;border-radius:10px;font-size:14px;font-family:inherit;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-ghost:hover{border-color:var(--gd);color:var(--gd-l)}
+.hidden{display:none!important}
+.fade-in{animation:fadeUp .5s cubic-bezier(.4,0,.2,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200px 0}100%{background-position:calc(200px + 100%) 0}}
+
+.handoff{padding:3rem 1.5rem;text-align:center;position:relative;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ho-eye{font-size:11px;letter-spacing:2px;color:var(--gd);font-weight:600;margin-bottom:20px}
+.avatar{width:72px;height:72px;border-radius:50%;border:2px solid var(--gd);background:var(--nv2);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;color:var(--gd-l);position:relative;margin-bottom:8px}
+.avatar::after{content:'';position:absolute;inset:-10px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.18),transparent 70%);z-index:-1}
+.ho-name{font-size:11px;color:var(--tx2);margin-bottom:24px}
+.ho-l1{font-size:22px;font-weight:600;color:#fff;margin-bottom:8px}
+.ho-l2{font-size:14px;color:var(--tx2);max-width:360px;line-height:1.5;margin-bottom:24px}
+.ho-spin{width:26px;height:26px;border:2px solid rgba(201,168,76,.2);border-top-color:var(--gd);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:24px}
+.ho-div{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gd),transparent);margin:0 auto 14px}
+.ho-seal{font-size:11px;color:var(--tx2);letter-spacing:.3px}
+
+.stepper{display:flex;align-items:center;justify-content:center;gap:0;padding:18px 0 6px}
+.sp{display:flex;align-items:center;gap:7px}
+.sp-d{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--hl);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--tx2);background:var(--nv2);transition:all .3s}
+.sp-d.on{border-color:var(--gd);color:var(--gd);background:rgba(201,168,76,.1)}
+.sp-d.ok{border-color:var(--gd);background:var(--gd);color:var(--nv)}
+.sp-t{font-size:11px;color:var(--tx2);transition:color .3s}
+.sp-t.on{color:var(--gd-l)}
+.sp-ln{width:26px;height:1.5px;background:var(--hl);margin:0 8px;transition:background .3s}
+.sp-ln.ok{background:var(--gd)}
+
+.pk{padding:.5rem 1.25rem 1.25rem}
+.pk-head{display:flex;align-items:center;gap:11px;padding:14px 0 4px;border-bottom:1px solid var(--hl);margin-bottom:4px}
+.pk-av{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gd);background:var(--nv2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--gd-l);flex-shrink:0}
+.pk-who b{font-size:14px;font-weight:600;color:#fff;display:block}
+.pk-who span{font-size:11px;color:var(--gd)}
+.pk-cred{font-size:10px;color:var(--tx2);opacity:.75;padding:6px 0 12px}
+.pk-title{font-size:18px;font-weight:600;color:#fff;line-height:1.4;margin-bottom:6px}
+.pk-sub{font-size:12.5px;color:var(--tx2);line-height:1.6;margin-bottom:16px}
+.lbl{font-size:12px;font-weight:600;color:var(--gd-l);margin:0 0 9px;letter-spacing:.2px}
+
+.days{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.days::-webkit-scrollbar{height:0}
+.day{flex:0 0 auto;min-width:86px;scroll-snap-align:start;background:var(--nv2);border:1px solid var(--hl);border-radius:11px;padding:11px 12px 10px;cursor:pointer;position:relative;overflow:hidden;transition:all .2s;text-align:left}
+.day::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gd-d),var(--gd),var(--gd-l));opacity:0;transition:opacity .2s}
+.day:hover:not(.gone){border-color:rgba(201,168,76,.5);transform:translateY(-2px)}
+.day.sel{border-color:var(--gd)}.day.sel::before{opacity:1}
+.day.gone{opacity:.42;cursor:not-allowed}
+.day .dw{font-size:11px;color:var(--tx2);text-transform:capitalize}
+.day .dn{font-size:17px;font-weight:600;color:#fff;margin:1px 0 7px}
+.day .dv{font-size:10px;font-weight:500;padding:2px 7px;border-radius:99px;display:inline-block}
+.dv.few{background:rgba(201,168,76,.16);color:var(--gd-l)}
+.dv.ok{background:rgba(157,170,192,.12);color:var(--tx2)}
+.dv.no{background:rgba(157,170,192,.08);color:var(--tx2)}
+
+.slots-wrap{margin-top:8px}
+.win{margin-bottom:14px}
+.win-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.win-h .wt{font-size:11px;color:var(--tx2);text-transform:uppercase;letter-spacing:.6px}
+.win-h .wb{font-size:10px;color:var(--gd-l);font-weight:500}
+.slot-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.slot{background:var(--nv3);border:1px solid var(--hl);border-radius:9px;padding:11px 12px;font-size:14px;font-weight:500;font-family:inherit;color:var(--tx);cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:space-between;gap:6px}
+.slot:hover:not(.taken):not(.sel){border-color:rgba(201,168,76,.5);transform:translateY(-1px)}
+.slot.sel{background:var(--gd);border-color:var(--gd);color:var(--nv);font-weight:600}
+.slot.taken{opacity:.32;text-decoration:line-through;cursor:not-allowed;color:var(--tx2)}
+.slot .sc{font-size:14px}
+.dur-line{font-size:11px;color:var(--tx2);opacity:.8;margin:2px 0 4px;display:flex;align-items:center;gap:5px}
+
+.skel{height:46px;border-radius:9px;background:linear-gradient(90deg,var(--nv3) 0%,#1a2c4a 40%,var(--nv3) 80%);background-size:200px 100%;animation:shimmer 1.2s infinite}
+
+.proof{margin:6px 0 4px;padding:14px;border:1px solid rgba(201,168,76,.18);border-radius:11px;background:rgba(201,168,76,.05)}
+.proof h4{font-size:12.5px;font-weight:600;color:var(--gd-l);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.case{display:flex;gap:9px;padding:7px 0;border-bottom:1px solid rgba(37,50,74,.6)}
+.case:last-of-type{border-bottom:none}
+.case i{color:var(--gd);font-size:15px;flex-shrink:0;margin-top:1px}
+.case span{font-size:12.5px;color:var(--tx);line-height:1.5}
+.case b{color:#fff;font-weight:600}
+.proof .disc{font-size:10px;color:var(--tx2);opacity:.7;margin-top:8px;line-height:1.4}
+
+.foot{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(10,22,40,.6),var(--nv) 30%);padding:14px 0 4px;margin-top:8px;border-top:1px solid var(--hl)}
+.contact{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--nv2);border:1px solid var(--hl);border-radius:10px;padding:11px 13px;margin-bottom:10px;flex-wrap:wrap}
+.contact .ci{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--tx)}
+.contact .ci i{color:#7BDCB5;font-size:16px}
+.contact .ci .lab{font-size:10px;color:var(--tx2);display:block}
+.toggle{display:flex;gap:4px;background:var(--nv3);border-radius:8px;padding:3px}
+.toggle button{background:transparent;border:none;color:var(--tx2);font-size:12px;font-family:inherit;padding:5px 11px;border-radius:6px;cursor:pointer;transition:all .15s}
+.toggle button.on{background:var(--gd);color:var(--nv);font-weight:600}
+.altnum{margin-bottom:10px}
+.altnum input{width:100%;background:var(--nv3);border:1px solid var(--hl);border-radius:9px;padding:11px 13px;font-size:15px;color:var(--tx);font-family:inherit;outline:none;font-variant-numeric:tabular-nums}
+.altnum input:focus{border-color:var(--gd)}
+.callout51{display:flex;align-items:flex-start;gap:8px;font-size:11.5px;color:var(--gd-l);background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.16);border-radius:9px;padding:9px 12px;margin-bottom:11px;line-height:1.5}
+.callout51 i{flex-shrink:0;margin-top:1px}
+.cta-sub{font-size:11px;color:var(--tx2);text-align:center;margin-top:8px}
+.trust{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-size:10px;color:var(--tx2);opacity:.7;padding:12px 0 2px}
+.trust span{display:flex;align-items:center;gap:4px}
+
+.pass{padding:1.5rem 1.5rem 1.75rem;text-align:center;position:relative}
+.ring-wrap{width:84px;height:84px;margin:6px auto 16px;position:relative}
+.ring-wrap::after{content:'';position:absolute;inset:-12px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.16),transparent 70%);animation:pulse 2.5s ease-in-out infinite}
+.ring-svg{width:84px;height:84px;transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:var(--hl);stroke-width:3}
+.ring-fg{fill:none;stroke:var(--gd);stroke-width:3;stroke-linecap:round;stroke-dasharray:251;stroke-dashoffset:251;animation:draw .9s .2s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.ring-chk{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--gd);opacity:0;animation:fadeUp .4s .8s both}
+.pass-t{font-size:21px;font-weight:600;color:#fff;margin-bottom:18px}
+.pass-t em{font-style:normal;color:var(--gd)}
+.ticket{background:var(--nv2);border:1px solid var(--hl);border-radius:13px;padding:18px;position:relative;overflow:hidden;text-align:left;margin-bottom:16px}
+.ticket::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gd-d),var(--gd),var(--gd-l))}
+.ticket .when{font-size:19px;font-weight:600;color:#fff;margin-bottom:3px}
+.ticket .meta{font-size:12px;color:var(--tx2);margin-bottom:12px}
+.ticket .cond{font-size:12px;color:var(--tx);font-style:italic;padding-top:11px;border-top:1px solid var(--hl);line-height:1.5}
+.ticket .code{font-family:'Inter',monospace;font-size:12px;color:var(--gd-l);letter-spacing:1px;margin-top:11px;display:flex;align-items:center;gap:6px}
+.code .lab{font-size:10px;color:var(--tx2);letter-spacing:.3px;font-style:normal}
+.steps3{text-align:left;margin:14px 0}
+.steps3 .s3{display:flex;gap:11px;padding:8px 0;border-left:2px solid var(--gd);padding-left:13px;margin-bottom:2px}
+.steps3 .num{font-size:12px;font-weight:600;color:var(--gd);flex-shrink:0}
+.steps3 .txt{font-size:13px;color:var(--tx);line-height:1.5}
+.pass-actions{display:flex;gap:8px;margin:16px 0 0;flex-wrap:wrap}
+.pass-actions .btn-ghost{flex:1;min-width:140px}
+.wa-link{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#3DD56D;width:100%;margin-top:8px;padding:11px;border-radius:10px;font-size:14px;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .15s}
+.wa-link:hover{background:rgba(37,211,102,.16)}
+.xp-box{font-size:12px;color:var(--tx2);background:var(--nv3);border-radius:10px;padding:12px 14px;margin:16px 0 0;line-height:1.6;text-align:left}
+.xp-box b{color:var(--tx)}
+.xp-box a{color:var(--gd);cursor:pointer;text-decoration:none}
+.mirror{font-size:11.5px;color:var(--tx2);opacity:.85;line-height:1.5;margin:14px 0 0;padding:0 6px}
+.sign{font-size:14px;color:var(--gd-l);font-style:italic;margin:16px 0 12px}
+.seal{font-size:10px;color:var(--tx2);opacity:.6;border-top:1px solid var(--hl);padding-top:13px;line-height:1.5}
+.toast{position:absolute;left:50%;transform:translateX(-50%);bottom:14px;background:var(--nv2);border:1px solid var(--gd);color:var(--gd-l);font-size:12px;padding:9px 16px;border-radius:9px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:5;max-width:90%;text-align:center}
+.toast.show{opacity:1}
+@media (max-width:480px){.slot-grid{grid-template-columns:1fr}.sp-t{display:none}}
+@media (prefers-reduced-motion:reduce){.fade-in,.ring-fg,.ring-chk,.ho-spin{animation:none}.ring-fg{stroke-dashoffset:0}.ring-chk{opacity:1}}
+</style>
+
+<div class="SCH" id="sch">
+  <div class="stage" id="stage">
+    <div id="screen"></div>
+    <div class="toast" id="toast"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const screen=$('screen');
+const _P=new URLSearchParams(location.search);
+function _mask(w){const d=(w||'').replace(/\D/g,'');if(d.length<6)return w||'';return `(${d.slice(0,2)}) 9••••-••${d.slice(-2)}`;}
+const _nome=_P.get('n')||'Matheus Oliveira';
+const _whats=_P.get('w')||'(11) 99632-1184';
+const LEAD={nome:_nome,primeiro:_nome.split(' ')[0],whats:_whats,whatsMask:_mask(_whats),email:_P.get('e')||'matheus@email.com',perfil:_P.get('p')||'prioritario'};
+const WD=['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
+const WDS=['dom','seg','ter','qua','qui','sex','sáb'];
+const MM=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const MF=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+
+const TPL=[
+  [['Manhã','09:00','free'],['Manhã','10:30','taken'],['Tarde','14:00','free'],['Tarde','15:30','free'],['Tarde','17:00','taken'],['Fim de tarde','18:30','free']],
+  [['Manhã','09:30','taken'],['Manhã','11:00','taken'],['Tarde','14:30','taken'],['Tarde','16:00','taken'],['Fim de tarde','18:00','taken']],
+  [['Manhã','09:30','free'],['Manhã','11:00','free'],['Tarde','14:30','taken'],['Tarde','16:00','free'],['Fim de tarde','18:00','free']],
+  [['Manhã','10:00','free'],['Tarde','13:30','free'],['Tarde','15:00','free'],['Tarde','16:30','free'],['Fim de tarde','19:00','free']],
+  [['Manhã','09:00','taken'],['Manhã','10:30','free'],['Tarde','14:00','free'],['Tarde','15:30','taken']]
+];
+
+function bizDays(n){const out=[];const d=new Date();d.setHours(0,0,0,0);while(out.length<n){const w=d.getDay();if(w>=1&&w<=5)out.push(new Date(d));d.setDate(d.getDate()+1);}return out;}
+const DAYS=bizDays(5).map((date,i)=>{const slots=(TPL[i]||TPL[4]).map(([win,time,status])=>({win,time,status}));return{date,slots,free:slots.filter(s=>s.status==='free').length,i};});
+
+let sel={dayIdx:null,slot:null,useAlt:false,altOk:false,code:null};
+
+function dayLabel(d){const t=new Date();t.setHours(0,0,0,0);const tm=new Date(t);tm.setDate(tm.getDate()+1);if(d.getTime()===t.getTime())return'Hoje';if(d.getTime()===tm.getTime())return'Amanhã';return cap(WDS[d.getDay()]);}
+function fmtCTA(d,slot){return`Confirmar ${WD[d.date.getDay()]}, ${d.date.getDate()}/${MM[d.date.getMonth()]} às ${slot}`;}
+function fmtTicket(d,slot){return`${cap(WD[d.date.getDay()])}, ${d.date.getDate()} de ${MF[d.date.getMonth()]} — ${slot}`;}
+function genCode(){const s='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let r='';for(let i=0;i<4;i++)r+=s[Math.floor(Math.random()*s.length)];return'FOCUS-'+r;}
+
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600);}
+
+function dl(name,content,mime){try{const b=new Blob([content],{type:mime});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);}catch(e){toast('Não foi possível gerar o arquivo aqui.');}}
+
+function stepper(active){
+  const items=[['Horário'],['Contato'],['Confirmação']];
+  return`<div class="stepper">${items.map((it,i)=>{
+    const st=i<active?'ok':i===active?'on':'';
+    const dot=st==='ok'?`<span class="sp-d ok"><i class="ti ti-check" style="font-size:13px"></i></span>`:`<span class="sp-d ${st}">${i+1}</span>`;
+    const ln=i<items.length-1?`<span class="sp-ln ${i<active?'ok':''}"></span>`:'';
+    return`<div class="sp">${dot}<span class="sp-t ${st}">${it[0]}</span></div>${ln}`;
+  }).join('')}</div>`;
+}
+
+function renderTrigger(){
+  screen.innerHTML=`<div class="trig fade-in">
+    <span class="rtag"><i class="ti ti-flame" style="font-size:13px"></i> Perfil prioritário</span>
+    <h3><em>${LEAD.primeiro}</em>, você tem o perfil ideal para estruturadas</h3>
+    <p>Assista ao vídeo e agende uma conversa com o time. Esta é a continuação do botão de agendamento do quiz.</p>
+    <button class="btn-gold" onclick="SCH_start()"><i class="ti ti-calendar"></i> Agendar conversa gratuita</button>
+    <div class="hint"><i class="ti ti-arrow-up" style="font-size:13px"></i> Clique para ver o fluxo completo de agendamento</div>
+  </div>`;
+}
+
+function renderHandoff(){
+  const nm=LEAD.primeiro?`Recebido, ${LEAD.primeiro}.`:'Recebido.';
+  screen.innerHTML=`<div class="handoff fade-in">
+    <div class="ho-eye">AGENDAMENTO PRIVADO</div>
+    <div class="avatar">AM</div>
+    <div class="ho-name">André Momberger · CEO Focus Invest</div>
+    <div class="ho-l1">${nm}</div>
+    <div class="ho-l2">Estou abrindo as janelas que ainda tenho na agenda desta semana.</div>
+    <div class="ho-spin"></div>
+    <div class="ho-div"></div>
+    <div class="ho-seal">Acesso por convite · Equipe Focus Invest</div>
+  </div>`;
+  setTimeout(()=>{ if(sel.dayIdx===null){ const f=DAYS.find(d=>d.free>0); sel.dayIdx=f?f.i:0; } renderPicker(); }, 1400);
+}
+
+function renderPicker(){
+  const stepActive=sel.slot?1:0;
+  screen.innerHTML=`<div class="fade-in">
+    ${stepper(stepActive)}
+    <div class="pk">
+      <div class="pk-head">
+        <div class="pk-av">AM</div>
+        <div class="pk-who"><b>André Momberger</b><span>CEO Focus Invest</span></div>
+      </div>
+      <div class="pk-cred">Desde 2002 · +R$700 mi sob gestão · +2.000 clientes · +3.000 alunos Focalise</div>
+      <div class="pk-title">${LEAD.primeiro?LEAD.primeiro+', separei':'Separei'} um tempo da minha agenda para você.</div>
+      <div class="pk-sub">Seu perfil foi classificado como prioritário. São 20 a 30 minutos, por telefone e sem custo — conversa conduzida pela minha equipe e acompanhada por mim. Trabalho com um número limitado de atendimentos por semana; abaixo estão os horários que ainda tenho abertos.</div>
+
+      <div class="lbl">1. Escolha o melhor dia</div>
+      <div class="days" id="days">${DAYS.map(d=>{
+        const gone=d.free===0;
+        const sub=gone?'<span class="dv no">Esgotado</span>':d.free<=2?`<span class="dv few">${d.free} vaga${d.free>1?'s':''}</span>`:`<span class="dv ok">${d.free} horários</span>`;
+        return`<div class="day ${gone?'gone':''} ${sel.dayIdx===d.i?'sel':''}" ${gone?'':`onclick="SCH_day(${d.i})"`}>
+          <div class="dw">${dayLabel(d.date)}</div>
+          <div class="dn">${String(d.date.getDate()).padStart(2,'0')}/${MM[d.date.getMonth()]}</div>
+          ${sub}
+        </div>`;
+      }).join('')}</div>
+
+      <div class="lbl" style="margin-top:6px">2. Escolha o horário</div>
+      <div class="dur-line"><i class="ti ti-clock" style="font-size:14px"></i> Conversa de 20 a 30 min · por telefone (horário de Brasília)</div>
+      <div class="slots-wrap" id="slots"></div>
+
+      <div id="proof"></div>
+      <div id="foot"></div>
+
+      <div class="trust">
+        <span><i class="ti ti-building-bank" style="font-size:13px"></i> Escritório credenciado XP Investimentos</span>
+        <span><i class="ti ti-shield-lock" style="font-size:13px"></i> Dados protegidos</span>
+      </div>
+    </div>
+  </div>`;
+  renderSlots(true);
+}
+
+function renderSlots(skeleton){
+  const wrap=$('slots');
+  if(skeleton){
+    wrap.innerHTML=`<div class="win"><div class="slot-grid">${'<div class="skel"></div>'.repeat(4)}</div></div>`;
+    setTimeout(()=>renderSlots(false),600);
+    return;
+  }
+  const day=DAYS[sel.dayIdx];
+  const wins=['Manhã','Tarde','Fim de tarde'];
+  let badgeShown=false;
+  let html='';
+  wins.forEach(w=>{
+    const items=day.slots.filter(s=>s.win===w);
+    if(!items.length)return;
+    const freeInWin=items.filter(s=>s.status==='free').length;
+    let badge='';
+    if(!badgeShown && freeInWin>0 && freeInWin<=2 && day.free<=4){
+      badge=`<span class="wb">Último${freeInWin>1?'s '+freeInWin+' horários':' horário'} nesta janela</span>`;
+      badgeShown=true;
+    }
+    html+=`<div class="win"><div class="win-h"><span class="wt">${w}</span>${badge}</div><div class="slot-grid">${items.map(s=>{
+      const isSel=sel.slot===s.time;
+      if(s.status==='taken')return`<button class="slot taken" disabled aria-disabled="true" title="Esse horário acabou de ser reservado.">${s.time}</button>`;
+      return`<button class="slot ${isSel?'sel':''}" aria-pressed="${isSel}" onclick="SCH_slot('${s.time}')">${s.time}${isSel?'<i class="ti ti-check sc"></i>':''}</button>`;
+    }).join('')}</div></div>`;
+  });
+  wrap.innerHTML=html;
+  if(sel.slot){renderProof();renderFoot();}
+}
+
+function renderProof(){
+  $('proof').innerHTML=`<div class="proof fade-in">
+    <h4><i class="ti ti-award" style="font-size:15px"></i> O que uma estrutura bem montada faz na prática</h4>
+    <div class="case"><i class="ti ti-shield-check"></i><span><b>Banco do Brasil</b> — capital 100% protegido na queda, com 40% do upside na alta.</span></div>
+    <div class="case"><i class="ti ti-trending-up"></i><span><b>Vale</b> — posição liquidada antes da queda e recomprada mais barata.</span></div>
+    <div class="case"><i class="ti ti-urgent"></i><span><b>Americanas</b> — a estrutura impediu que a posição virasse pó.</span></div>
+    <div class="disc">Casos reais de clientes. Resultados passados não garantem resultados futuros.</div>
+  </div>`;
+}
+
+function renderFoot(){
+  const day=DAYS[sel.dayIdx];
+  $('foot').innerHTML=`<div class="foot fade-in">
+    <div style="font-size:11px;color:var(--tx2);margin-bottom:8px">Vou usar os dados que você já preencheu — não precisa digitar de novo.</div>
+    <div class="contact">
+      <div class="ci"><i class="ti ti-circle-check"></i><div><span class="lab">WhatsApp</span>${sel.useAlt?'novo número':LEAD.whatsMask}</div></div>
+      <div class="toggle">
+        <button class="${!sel.useAlt?'on':''}" onclick="SCH_alt(false)">Sim</button>
+        <button class="${sel.useAlt?'on':''}" onclick="SCH_alt(true)">Usar outro</button>
+      </div>
+    </div>
+    ${sel.useAlt?`<div class="altnum"><input type="tel" id="altInput" placeholder="(DD) 99999-9999" oninput="SCH_altIn(this.value)"></div>`:''}
+    <div class="callout51"><i class="ti ti-phone-incoming" style="font-size:15px"></i><span>No dia, a ligação chega com prefixo <b>(51)</b> — nossa equipe fala do Rio Grande do Sul. Salve o contato e atenda.</span></div>
+    <button class="btn-gold" id="confirmBtn" style="width:100%" onclick="SCH_confirm()" ${(sel.useAlt&&!sel.altOk)?'disabled':''}>${fmtCTA(day,sel.slot)}</button>
+    <div class="cta-sub">Pode remarcar com 1 clique se precisar.</div>
+  </div>`;
+  setTimeout(()=>{$('foot').scrollIntoView({behavior:'smooth',block:'nearest'});},120);
+}
+
+function renderPass(){
+  const day=DAYS[sel.dayIdx];
+  sel.code=sel.code||genCode();
+  screen.innerHTML=`<div class="fade-in">
+    ${stepper(3)}
+    <div class="pass">
+      <div class="ring-wrap">
+        <svg class="ring-svg" viewBox="0 0 84 84"><circle class="ring-bg" cx="42" cy="42" r="40"/><circle class="ring-fg" cx="42" cy="42" r="40"/></svg>
+        <div class="ring-chk"><i class="ti ti-check"></i></div>
+      </div>
+      <div class="pass-t">Pronto, <em>${LEAD.primeiro||''}</em>. Seu horário está reservado.</div>
+      <div class="ticket">
+        <div class="when">${fmtTicket(day,sel.slot)}</div>
+        <div class="meta">20 a 30 min · ligação com prefixo 51 · horário de Brasília</div>
+        <div class="cond">Conversa conduzida pela minha equipe e acompanhada por mim. — André Momberger</div>
+        <div class="code"><span class="lab">Sua confirmação:</span> ${sel.code}</div>
+      </div>
+      <div class="steps3">
+        <div class="s3"><span class="num">1</span><span class="txt">Você recebe a confirmação no WhatsApp agora.</span></div>
+        <div class="s3"><span class="num">2</span><span class="txt">No horário, ligamos com prefixo (51) — atenda, é a nossa equipe.</span></div>
+        <div class="s3"><span class="num">3</span><span class="txt">Mostramos, com a sua carteira, como proteger o capital na queda e ampliar o ganho na alta.</span></div>
+      </div>
+      <div class="pass-actions">
+        <button class="btn-ghost" onclick="SCH_ics()"><i class="ti ti-calendar-plus"></i> Adicionar à minha agenda</button>
+        <button class="btn-ghost" onclick="SCH_vcard()"><i class="ti ti-address-book"></i> Salvar o contato (51)</button>
+      </div>
+      <button class="wa-link" onclick="SCH_wa()"><i class="ti ti-brand-whatsapp" style="font-size:17px"></i> Prefiro confirmar pelo WhatsApp</button>
+      <div class="xp-box"><b>Para operarmos juntos</b>, você só precisa de uma conta na XP com a Focus como assessoria. Já tem? Ótimo. Ainda não? A gente te orienta no próprio call. <a onclick="SCH_xp()">Como faço isso?</a></div>
+      <div class="mirror">Atendimentos limitados — se precisar remarcar, avise. Assim liberamos seu horário para outro investidor.</div>
+      <div class="sign">Te espero na conversa. — André</div>
+      <div class="seal">Focus Invest · Escritório credenciado XP Investimentos · CNPJ 00.000.000/0001-00<br>Resultados passados não garantem resultados futuros.</div>
+      <div style="margin-top:14px"><button class="btn-ghost" onclick="SCH_reset()" style="font-size:12px"><i class="ti ti-refresh" style="font-size:13px"></i> Rever o fluxo</button></div>
+    </div>
+  </div>`;
+}
+
+window.SCH_start=()=>renderHandoff();
+window.SCH_day=(i)=>{sel.dayIdx=i;sel.slot=null;renderPicker();};
+window.SCH_slot=(t)=>{sel.slot=t;renderPicker();};
+window.SCH_alt=(v)=>{sel.useAlt=v;sel.altOk=false;renderFoot();if(v)setTimeout(()=>$('altInput')&&$('altInput').focus(),50);};
+window.SCH_altIn=(v)=>{const digits=v.replace(/\D/g,'');sel.altOk=digits.length>=10;const b=$('confirmBtn');if(b)b.disabled=!sel.altOk;};
+window.SCH_confirm=()=>{
+  const b=$('confirmBtn');if(!b)return;
+  b.disabled=true;b.innerHTML='<i class="ti ti-loader-2" style="animation:spin .8s linear infinite"></i> Reservando…';
+  setTimeout(()=>renderPass(),900);
+};
+window.SCH_ics=()=>{
+  const day=DAYS[sel.dayIdx];const [hh,mm]=sel.slot.split(':');
+  const s=new Date(day.date);s.setHours(+hh,+mm,0,0);const e=new Date(s);e.setMinutes(e.getMinutes()+30);
+  const f=d=>`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}T${String(d.getHours()).padStart(2,'0')}${String(d.getMinutes()).padStart(2,'0')}00`;
+  const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Focus Invest//Agendamento//PT','CALSCALE:GREGORIAN','BEGIN:VTIMEZONE','TZID:America/Sao_Paulo','BEGIN:STANDARD','DTSTART:19700101T000000','TZOFFSETFROM:-0300','TZOFFSETTO:-0300','TZNAME:-03','END:STANDARD','END:VTIMEZONE','BEGIN:VEVENT','UID:'+sel.code+'@focusinvestimentos.com','DTSTART;TZID=America/Sao_Paulo:'+f(s),'DTEND;TZID=America/Sao_Paulo:'+f(e),'SUMMARY:Conversa Focus Invest — André Momberger','DESCRIPTION:Confirmação '+sel.code+'. A ligação chega com prefixo (51). Atenda — é a equipe da Focus Invest.','LOCATION:Por telefone (prefixo 51)','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  dl('focus-invest-'+sel.code+'.ics',ics,'text/calendar');
+  toast('Evento adicionado à sua agenda.');
+};
+window.SCH_vcard=()=>{
+  const v=['BEGIN:VCARD','VERSION:3.0','FN:Focus Invest (51)','ORG:Focus Invest','TEL;TYPE=CELL:+5551999999999','NOTE:Ligação do seu agendamento de operações estruturadas.','END:VCARD'].join('\r\n');
+  dl('focus-invest-51.vcf',v,'text/vcard');
+  toast('Contato salvo. Agora você reconhece a ligação.');
+};
+window.SCH_wa=()=>{const msg=encodeURIComponent(`Olá! Confirmo meu agendamento ${sel.code} — ${fmtTicket(DAYS[sel.dayIdx],sel.slot)}.`);window.open('https://wa.me/5551999999999?text='+msg,'_blank');};
+window.SCH_xp=()=>{toast('Abrindo orientação de abertura de conta XP…');};
+window.SCH_reset=()=>{sel={dayIdx:null,slot:null,useAlt:false,altOk:false,code:null};renderTrigger();};
+
+// Veio do quiz (dados na URL) -> pula o stub e abre direto o handoff.
+// Acesso direto (sem dados) -> mostra o stub para demonstração/revisão.
+if(_P.get('n')){renderHandoff();}else{renderTrigger();}
+})();
+</script>
+</div>
+</body>
+</html>

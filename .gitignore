@@ -1,0 +1,6 @@
+# pacote de distribuição (não versionar)
+*.zip
+
+# sistema
+Thumbs.db
+.DS_Store
