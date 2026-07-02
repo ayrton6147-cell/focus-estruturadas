@@ -1,54 +1,77 @@
-# Como embutir o funil na Landing Page (WordPress / Elementor)
+# Como publicar e integrar o quiz na Focus Invest
 
-O funil é um site estático hospedado no GitHub Pages. Para colocá-lo na LP da
-campanha (ex.: antes do vídeo, para qualificar o lead), basta um iframe que se
-ajusta sozinho à altura do conteúdo.
+Quiz interativo de operações estruturadas que, ao final, gera uma **análise
+aprofundada e personalizada** para o lead (relatório na tela + PDF + WhatsApp).
+Site estático (HTML/CSS/JS puro, sem build).
 
-## Passo a passo no Elementor
+## Arquivos
 
-1. Edite a página da campanha no Elementor.
-2. Arraste um widget **HTML** para o ponto onde o quiz deve aparecer (ex.: acima do vídeo).
-3. Cole o código abaixo.
-4. Clique em **Atualizar / Publicar**.
+| Arquivo | Papel |
+|---------|-------|
+| `index.html` | **O quiz** — página de entrada (o link é este) |
+| `relatorio.html` | Análise aprofundada entregue ao lead (aberta pelo quiz) |
+| `assets/logo-focus.png` | Logo (branco, para fundo escuro) |
+| `agendamento.html` | Fluxo de agendamento (preservado, fora do fluxo principal) |
 
-## Código do embed
+## 1. Publicar no servidor da Focus
+
+Suba a pasta inteira para o servidor (ex.: `https://focusinvestimentos.com/quiz-estruturadas/`).
+Como o entry é `index.html`, o link direto já abre o quiz:
+
+```
+https://focusinvestimentos.com/quiz-estruturadas/
+```
+
+## 2. Embutir numa Landing Page (Elementor / WordPress)
+
+Widget **HTML**, com auto-resize (o quiz reporta a altura ao container):
 
 ```html
 <div style="max-width:680px;margin:0 auto;">
-  <iframe id="focusFunilFrame"
-    src="https://ayrton6147-cell.github.io/focus-estruturadas/quiz.html"
-    style="width:100%;border:0;display:block;min-height:620px;overflow:hidden;background:transparent;"
-    scrolling="no" loading="lazy" title="Quiz Focus Invest — Operações Estruturadas"></iframe>
+  <iframe id="focusQuiz"
+    src="https://focusinvestimentos.com/quiz-estruturadas/"
+    style="width:100%;border:0;display:block;min-height:640px;overflow:hidden;background:transparent;"
+    scrolling="no" loading="lazy" title="Quiz — Operações Estruturadas Focus"></iframe>
 </div>
 <script>
 (function(){
-  var f = document.getElementById('focusFunilFrame');
-  window.addEventListener('message', function(e){
-    if (e.origin !== 'https://ayrton6147-cell.github.io') return;
-    if (e.data && e.data.focusFunil === 'height' && e.data.height) {
-      f.style.height = (e.data.height + 10) + 'px';
-    }
+  var f=document.getElementById('focusQuiz');
+  window.addEventListener('message',function(e){
+    if(e.data && e.data.focusFunil==='height' && e.data.height){ f.style.height=(e.data.height+10)+'px'; }
   });
 })();
 </script>
 ```
+> Ajuste a verificação de origem (`e.origin`) para o domínio final, por segurança.
 
-### Como funciona
-- O iframe carrega o **quiz** (entrada do funil). Quando o lead se qualifica e clica
-  em "Agendar conversa gratuita", o próprio iframe avança para o **agendamento**,
-  já com os dados do lead — tudo dentro do mesmo embed.
-- O script de auto-resize ajusta a altura do iframe conforme a tela muda
-  (pergunta → resultado → agendamento → passaporte), sem barra de rolagem interna.
-- A verificação `e.origin` garante que só a página do funil controla a altura.
+## 3. Integrar com o RD Station (CRM)
 
-## Atualizar o conteúdo depois
-Edite os arquivos localmente e rode, dentro da pasta do projeto:
+Quando o lead é capturado (após o consentimento LGPD), o quiz chama uma única
+função **`captureLead(payload)`** e dispara:
+- um evento DOM `focus:lead` (`window.addEventListener('focus:lead', ...)`)
+- um push no `window.dataLayer` (`event: 'focus_lead'`) para GTM
 
-```bash
-git add -A
-git commit -m "Atualiza funil"
-git push
+O `payload` já vem pronto:
+
+```json
+{
+  "nome": "...", "whatsapp": "...", "consentimento_lgpd": true,
+  "perfil": "prioritario|qualificado|aquecendo|construcao",
+  "arquetipo": "O Construtor Protegido",
+  "dor": "protecao", "score": 92,
+  "ticket": "R$ 150–500 mil", "timing": "imediato",
+  "patrimonio": "R$ 100–500 mil", "origem": "quiz_estruturadas"
+}
 ```
 
-O GitHub Pages republica sozinho em ~1 minuto e a LP reflete a mudança
-(sem mexer no Elementor).
+Para conectar o RD Station, edite **um único ponto** em `index.html` — a função
+`captureLead()` (bloco comentado "PONTO DE INTEGRAÇÃO — CRM / RD STATION"). Opções:
+- **RD Station Conversions API / Forms** (recomendado) — envie o `payload`.
+- **Webhook** (`fetch('SEU_WEBHOOK_RD', {method:'POST', body: JSON.stringify(payload)})`).
+- **GTM** — capture o evento `focus_lead` do dataLayer e dispare a tag do RD.
+
+O RD Station passa então a ser a fonte de verdade e pode automatizar o envio da
+análise ao WhatsApp do lead.
+
+## Atualizar depois
+Edite os arquivos e re-suba para o servidor (ou `git push`, se em Pages).

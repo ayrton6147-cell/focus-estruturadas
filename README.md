@@ -1,58 +1,38 @@
-# Focus Invest — Funil de Operações Estruturadas
+# Focus Invest — Quiz de Operações Estruturadas
 
-Funil interativo de captação e qualificação de leads para a campanha de operações
-estruturadas (Focus Invest / Focalise).
+Quiz interativo de qualificação que, ao final, entrega ao lead uma **análise
+aprofundada e personalizada** (relatório na tela + PDF + WhatsApp).
 
-## Páginas
+Identidade visual Focus: navy `#123245`, dourado `#bfa174`, branco, fonte Poppins,
+logo Focus. Site estático (HTML/CSS/JS puro, sem build) — funciona em qualquer
+hospedagem estática.
+
+## Estrutura
 
 | Arquivo | Papel |
 |---------|-------|
-| `index.html` | Página índice — reúne os links de todas as peças |
-| `quiz.html` | Quiz de qualificação (7 perguntas → captura de dados → resultado) |
-| `agendamento.html` | Fluxo de agendamento (dia → horário → confirmação → passaporte) |
+| `index.html` | **O quiz** (entrada — o link é este) |
+| `relatorio.html` | Análise aprofundada entregue ao lead |
+| `assets/logo-focus.png` | Logo Focus (branco) |
+| `agendamento.html` | Fluxo de agendamento (preservado, fora do fluxo atual) |
 
-O quiz envia os dados do lead para o agendamento pela URL
-(`agendamento.html?n=Nome&w=WhatsApp&e=email&p=perfil`), conectando o funil de ponta a ponta.
+## Fluxo
 
-É um site estático (HTML/CSS/JS puro, sem build). Funciona em qualquer hospedagem estática.
+1. Lead responde 8 toques (perfil + como pensa).
+2. Vê o resultado (arquétipo + medidores) e, após o consentimento LGPD, libera a
+   recomendação e informa o WhatsApp.
+3. Recebe a **análise completa** (`relatorio.html`): perfil, estruturas
+   recomendadas, cenários e próximos passos — com **baixar PDF** e **WhatsApp**
+   do time da Focus (5551 95107857).
 
----
+## Publicação e integração
 
-## Publicar no GitHub Pages
+Ver **[EMBED.md](EMBED.md)** — como subir no servidor da Focus, embutir por iframe
+na LP (Elementor) e **integrar o RD Station** (ponto único `captureLead()` +
+evento `focus:lead` + `dataLayer`).
 
-### 1. Crie um repositório no GitHub
-Acesse https://github.com/new e crie um repositório **público** (ex.: `focus-estruturadas`).
-Não marque "Add a README" (este repo já tem um).
+## Conformidade
 
-### 2. Conecte e envie (rode no terminal, dentro desta pasta)
-Troque `SEU-USUARIO` e `focus-estruturadas` pelos seus:
-
-```bash
-git remote add origin https://github.com/SEU-USUARIO/focus-estruturadas.git
-git push -u origin main
-```
-
-### 3. Ative o GitHub Pages
-No repositório: **Settings → Pages → Build and deployment**
-- **Source:** Deploy from a branch
-- **Branch:** `main` / `/ (root)` → **Save**
-
-Em ~1 minuto o site fica no ar em:
-`https://SEU-USUARIO.github.io/focus-estruturadas/`
-
-Links diretos:
-- Quiz: `https://SEU-USUARIO.github.io/focus-estruturadas/quiz.html`
-- Agendamento: `https://SEU-USUARIO.github.io/focus-estruturadas/agendamento.html`
-
----
-
-## Atualizar o site depois
-Edite os arquivos e rode:
-
-```bash
-git add -A
-git commit -m "Atualiza funil"
-git push
-```
-
-O Pages republica sozinho a cada push.
+- Rodapé institucional com CNPJ, Resolução CVM 178/23 e disclaimer XP em todas as páginas.
+- Consentimento LGPD explícito e obrigatório na captura.
+- Sem promessa de retorno; disclaimers de risco presentes.

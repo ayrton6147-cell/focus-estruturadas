@@ -93,9 +93,8 @@ body{background:#07161e;font-family:'Poppins',sans-serif;color:var(--tx);padding
       <h3>Receba esta análise e leve para a conversa</h3>
       <div class="asub">Sua análise completa, pronta para o time montar a estrutura no seu tamanho.</div>
       <div class="arow">
-        <button class="btn btn-wa" onclick="R_wa()"><i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Receber no WhatsApp</button>
+        <button class="btn btn-wa" onclick="R_wa()"><i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Falar com o time no WhatsApp</button>
         <button class="btn btn-gold" onclick="R_pdf()"><i class="ti ti-download" style="font-size:17px"></i> Baixar em PDF</button>
-        <button class="btn btn-ghost" onclick="R_agendar()"><i class="ti ti-calendar" style="font-size:16px"></i> Agendar conversa</button>
       </div>
       <div class="disc">Este material é educativo e personalizado a partir das suas respostas. Não constitui recomendação ou oferta de investimento. O investimento em ações e derivativos envolve risco; resultados passados não garantem resultados futuros.</div>
     </div>
@@ -276,10 +275,11 @@ $('content').innerHTML=`
 window.R_wa=()=>{const msg=encodeURIComponent(`Olá! Recebi minha análise de operações estruturadas (perfil: ${A.n}). Sou o(a) ${primeiro} e gostaria de conversar sobre montar a estrutura no meu caso.`);window.open('https://wa.me/'+WA_TEAM+'?text='+msg,'_blank');};
 window.R_agendar=()=>{const q=new URLSearchParams({n:nome,w:w,e:'',p:tier==='prioritario'?'prioritario':'compativel',tk:TKL[ca],tm:TML[ti],dor:dor,sc:String(sc)}).toString();location.href='agendamento.html?'+q;};
 function toast(m){const n=$('notice');n.textContent=m;n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2600);}
-window.R_pdf=()=>{
+window.R_pdf=async()=>{
   toast('Gerando seu PDF…');
   const el=$('doc');
   if(!window.html2canvas||!window.jspdf){window.print();return;}
+  try{ if(document.fonts&&document.fonts.ready){await document.fonts.ready;} }catch(e){}
   html2canvas(el,{scale:2,backgroundColor:'#0e2733',useCORS:true,logging:false}).then(canvas=>{
     const {jsPDF}=window.jspdf;const pdf=new jsPDF('p','mm','a4');
     const pw=210,ph=297,iw=pw,ih=canvas.height*pw/canvas.width;

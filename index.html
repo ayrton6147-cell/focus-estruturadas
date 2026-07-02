@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Focus Invest — Funil de Estruturadas (índice)</title>
+<title>Focus Invest — Diagnóstico de operações estruturadas</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
 <style>
   body{margin:0;background:#07161e;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px}
@@ -14,113 +14,494 @@
 <div id="host">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-.IX *{box-sizing:border-box;margin:0;padding:0}
-.IX{--nv:#0e2733;--nv2:#123245;--nv3:#0b202b;--gd:#bfa174;--gd-l:#d8c39c;--gd-d:#8f7748;--tx:#ffffff;--tx2:#a6b5c1;--hl:#244a5e;font-family:'Poppins',sans-serif}
-.ixtop{display:flex;justify-content:center;padding:18px 0 0}
-.ixtop img{height:32px;opacity:.95}
-.ixfoot{border-top:1px solid var(--hl);margin-top:6px;padding:18px 1.25rem 22px;text-align:center}
-.ixfoot .lg{font-size:9.5px;color:var(--tx2);opacity:.6;line-height:1.5;text-align:justify;margin-top:10px}
-.stage{background:var(--nv);border:1px solid rgba(201,168,76,.18);border-radius:18px;overflow:hidden;position:relative;color:var(--tx)}
-.stage::before{content:'';position:absolute;top:0;left:0;right:0;height:160px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(201,168,76,.10) 0%,transparent 70%);pointer-events:none}
-.fade-in{animation:fu .5s cubic-bezier(.4,0,.2,1) both}
-@keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.head{text-align:center;padding:2rem 1.5rem 1rem;position:relative}
-.head .eye{font-size:11px;letter-spacing:2px;color:var(--gd);font-weight:600;margin-bottom:10px}
-.head h1{font-size:23px;font-weight:600;color:#fff;margin-bottom:6px}
-.head p{font-size:13px;color:var(--tx2);max-width:430px;margin:0 auto;line-height:1.6}
-.body{padding:.5rem 1.25rem 1.5rem}
-.flow{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 18px;flex-wrap:wrap;font-size:11px;color:var(--tx2)}
-.flow .fp{padding:4px 11px;border-radius:99px;background:var(--nv2);border:1px solid var(--hl)}
-.flow i{color:var(--gd)}
-.lnk{display:flex;align-items:center;gap:14px;background:var(--nv2);border:1px solid var(--hl);border-radius:13px;padding:16px 18px;margin-bottom:11px;text-decoration:none;color:inherit;transition:all .18s;position:relative;overflow:hidden}
-.lnk::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gd-d),var(--gd),var(--gd-l));opacity:0;transition:opacity .18s}
-.lnk:hover{border-color:rgba(201,168,76,.5);transform:translateX(3px)}
-.lnk:hover::before{opacity:1}
-.lnk .ic{width:46px;height:46px;border-radius:11px;background:var(--nv3);border:1px solid var(--hl);display:flex;align-items:center;justify-content:center;color:var(--gd);font-size:22px;flex-shrink:0}
-.lnk .meta{flex:1;min-width:0}
-.lnk .tt{font-size:15px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.lnk .badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:99px}
-.badge.main{background:rgba(93,202,165,.16);color:#5DCAA5}
-.badge.step{background:rgba(201,168,76,.16);color:var(--gd-l)}
-.lnk .dd{font-size:12px;color:var(--tx2);margin-top:3px;line-height:1.5}
-.lnk .go{color:var(--tx2);font-size:18px;flex-shrink:0;transition:color .18s}
-.lnk:hover .go{color:var(--gd)}
-.sec-t{font-size:11px;letter-spacing:1px;color:var(--tx2);text-transform:uppercase;margin:18px 0 10px;padding-left:2px}
-.note{font-size:12px;color:var(--tx2);line-height:1.6;background:var(--nv3);border-radius:11px;padding:13px 16px;margin-top:8px}
-.note b{color:var(--tx)}
-.note code{background:var(--nv);padding:1px 6px;border-radius:5px;color:var(--gd-l);font-size:11px}
-.seal{font-size:10px;color:var(--tx2);opacity:.6;text-align:center;border-top:1px solid var(--hl);padding-top:14px;margin-top:18px;line-height:1.5}
+.QZ *{box-sizing:border-box;margin:0;padding:0}
+.QZ{--nv:#0e2733;--nv2:#123245;--nv3:#0b202b;--gd:#bfa174;--gd-l:#d8c39c;--gd-d:#8f7748;--tx:#ffffff;--tx2:#a6b5c1;--hl:#244a5e;--ok:#6ac0a0;--ease:cubic-bezier(.22,1,.36,1);font-family:'Poppins',sans-serif}
+.stage{background:var(--nv);border:1px solid rgba(191,161,116,.2);border-radius:16px;overflow:hidden;position:relative;color:var(--tx)}
+.stage::before{content:'';position:absolute;top:0;left:0;right:0;height:150px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(191,161,116,.08) 0%,transparent 70%);pointer-events:none}
+.fade-in{animation:fadeUp .45s var(--ease) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes grow{from{width:0}}
+@keyframes stamp{0%{transform:scale(1.06);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes haloPulse{0%,100%{box-shadow:0 0 0 0 rgba(191,161,116,0)}50%{box-shadow:0 0 16px 1px rgba(191,161,116,.32)}}
+
+.topbar{display:flex;align-items:center;justify-content:center;padding:18px 0 14px;border-bottom:1px solid var(--hl)}
+.topbar img{height:34px;width:auto;opacity:.96}
+
+.head{text-align:center;padding:1.4rem 1.5rem .3rem;position:relative}
+.head .eye{font-size:10.5px;letter-spacing:1.8px;color:var(--gd);font-weight:600;margin-bottom:12px}
+.head h1{font-size:18px;font-weight:500;color:#fff;line-height:1.55;margin:0 auto;max-width:540px}
+.head .sig{font-size:11.5px;color:var(--tx2);margin-top:10px}
+
+.steps{display:flex;align-items:center;justify-content:center;padding:14px 0 4px}
+.sp{display:flex;align-items:center;gap:6px}
+.sp-d{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--hl);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--tx2);background:var(--nv2);transition:all .3s}
+.sp-d.on{border-color:var(--gd);color:var(--gd);background:rgba(191,161,116,.12)}
+.sp-d.ok{border-color:var(--gd);background:var(--gd);color:var(--nv)}
+.sp-t{font-size:10.5px;color:var(--tx2);transition:color .3s}
+.sp-t.on{color:var(--gd-l)}
+.sp-ln{width:24px;height:1.5px;background:var(--hl);margin:0 8px;transition:background .3s}
+.sp-ln.ok{background:var(--gd)}
+
+.pmeta{display:flex;justify-content:space-between;align-items:baseline;margin:6px 1.5rem 0}
+.pmeta .pmc{font-size:11px;color:var(--tx2)}
+.pb{height:3px;background:var(--nv3);border-radius:2px;margin:4px 1.5rem 0;overflow:hidden}
+.pf{height:100%;background:linear-gradient(90deg,var(--gd-d),var(--gd));border-radius:2px;transition:width .6s var(--ease)}
+
+.body{padding:1rem 1.5rem 1.4rem}
+.backbtn{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--tx2);background:none;border:none;cursor:pointer;font-family:inherit;padding:2px 0;margin-bottom:10px;transition:color .15s}
+.backbtn:hover{color:var(--gd-l)}
+.card{background:var(--nv2);border:1px solid var(--hl);border-radius:14px;padding:1.35rem;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gd-d),var(--gd),var(--gd-l))}
+.qtag{display:inline-block;font-size:11px;padding:3px 11px;border-radius:99px;margin-bottom:11px;letter-spacing:.3px;font-weight:500}
+.qtag.perfil{background:rgba(106,150,175,.16);color:#a9c8dc}
+.qtag.crenca{background:rgba(191,161,116,.15);color:var(--gd-l)}
+.qt{font-size:17px;font-weight:500;color:#fff;line-height:1.45;margin-bottom:5px}
+.qs{font-size:12.5px;color:var(--tx2);line-height:1.55;margin-bottom:1.1rem}
+.opts{display:flex;flex-direction:column;gap:8px}
+.ob{text-align:left;padding:12px 14px;border-radius:10px;border:1px solid var(--hl);background:var(--nv3);cursor:pointer;font-size:14px;color:var(--tx);transition:all .15s;display:flex;align-items:center;gap:11px;line-height:1.4;font-family:inherit}
+.ob:hover:not(.lk){border-color:rgba(191,161,116,.5);transform:translateX(3px)}
+.ob .le{width:26px;height:26px;border-radius:50%;background:var(--nv);border:1px solid var(--hl);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--tx2);flex-shrink:0;transition:all .2s}
+.ob.sel{border-color:var(--gd);background:rgba(191,161,116,.12)}
+.ob.sel .le{background:var(--gd);border-color:var(--gd);color:var(--nv);animation:halo .5s var(--ease)}
+@keyframes halo{0%{box-shadow:0 0 0 0 rgba(191,161,116,.35)}100%{box-shadow:0 0 0 7px rgba(191,161,116,0)}}
+.ob.lk{cursor:default}
+.ex{margin-top:11px;padding:12px 14px;background:var(--nv3);border-left:3px solid var(--gd);border-radius:8px;font-size:13px;color:var(--tx2);line-height:1.65;display:none}
+.ex .who{color:var(--gd-l);font-weight:600;font-size:12px;display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.calib{font-size:11.5px;color:var(--tx2);opacity:.85;margin-top:10px;font-style:italic}
+.nr{display:flex;justify-content:flex-end;margin-top:1rem}
+.nr button{display:none}
+
+.itoast{position:absolute;top:10px;left:50%;transform:translateX(-50%) translateY(-12px);max-width:90%;background:linear-gradient(180deg,rgba(191,161,116,.18),rgba(191,161,116,.08));border:1px solid rgba(191,161,116,.42);color:var(--gd-l);font-size:12.5px;line-height:1.45;padding:9px 15px;border-radius:10px;opacity:0;transition:all .35s var(--ease);pointer-events:none;z-index:6;display:flex;align-items:center;gap:7px;text-align:left}
+.itoast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.itoast i{flex-shrink:0;color:var(--gd)}
+
+.btn-gold{background:linear-gradient(180deg,var(--gd) 0%,var(--gd-d) 100%);color:#1a1206;border:none;padding:12px 22px;border-radius:10px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:filter .15s,transform .15s;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.btn-gold:hover:not(:disabled){filter:brightness(1.07);transform:translateY(-1px)}
+.btn-gold:disabled{opacity:.45;cursor:not-allowed}
+.btn-gold.glow{box-shadow:0 0 14px rgba(191,161,116,.35);animation:haloPulse 2.6s ease-in-out infinite}
+.btn-ghost{background:transparent;border:1px solid var(--hl);color:var(--tx2);padding:11px 18px;border-radius:10px;font-size:14px;font-family:inherit;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-ghost:hover{border-color:var(--gd);color:var(--gd-l)}
+.discreet{font-size:12px;color:var(--tx2);cursor:pointer;text-decoration:underline;text-underline-offset:3px;background:none;border:none;font-family:inherit}
+.discreet:hover{color:var(--gd-l)}
+
+.res{position:relative}
+.seal{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:99px;background:rgba(191,161,116,.13);border:1px solid rgba(191,161,116,.38);margin:0 auto 14px;animation:stamp .5s var(--ease) both}
+.seal .lab{font-size:11px;color:var(--tx2)}
+.seal .arch{font-size:13px;font-weight:600;color:var(--gd-l)}
+.res .rtop{text-align:center}
+.res h2{font-size:19px;font-weight:500;color:#fff;line-height:1.4;margin-bottom:8px}
+.res h2 em{font-style:normal;color:var(--gd);font-weight:600}
+.anchor{font-size:13.5px;color:var(--gd-l);line-height:1.6;font-style:italic;max-width:520px;margin:0 auto 16px}
+.fit{display:flex;flex-direction:column;align-items:center;margin:4px 0 18px}
+.fit .fv{font-size:40px;font-weight:600;color:var(--gd);line-height:1}
+.fit .fl{font-size:11px;color:var(--tx2);margin-top:3px;letter-spacing:.4px}
+.fit .fbar{width:160px;height:5px;background:var(--nv);border-radius:3px;overflow:hidden;margin-top:9px}
+.fit .fbf{height:100%;background:linear-gradient(90deg,var(--gd-d),var(--gd-l));border-radius:3px;width:0;transition:width 1s var(--ease)}
+.mts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.mt{background:var(--nv);border:1px solid var(--hl);border-radius:11px;padding:11px 13px;text-align:left;opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mt.in{opacity:1;transform:translateY(0)}
+.mt .ml{font-size:11px;color:var(--tx2);display:flex;align-items:center;gap:5px}
+.mt .mv{font-size:15px;font-weight:600;color:#fff;margin:3px 0 6px}
+.mt .mbar{height:5px;background:var(--nv3);border-radius:3px;overflow:hidden}
+.mt .mbf{height:100%;border-radius:3px;width:0;transition:width .7s var(--ease)}
+
+.lockedz{position:relative;margin-top:4px}
+.lockedc{transition:filter .45s var(--ease)}
+.lockedc.blurred{filter:blur(6px)}
+.unlock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;background:linear-gradient(180deg,rgba(14,39,51,.4),rgba(14,39,51,.82));border-radius:12px;z-index:4}
+.unlock .ut{font-size:16px;font-weight:600;color:#fff;text-align:center}
+.unlock .ud{font-size:12.5px;color:var(--tx2);text-align:center;line-height:1.55;max-width:380px}
+.unlock input{width:100%;max-width:340px;background:var(--nv3);border:1px solid var(--hl);border-radius:9px;padding:12px 14px;font-size:16px;color:var(--tx);font-family:inherit;outline:none;text-align:center}
+.unlock input:focus{border-color:var(--gd)}
+.unlock .uerr{font-size:11.5px;color:#e8a; display:none}
+.consent{display:flex;align-items:flex-start;gap:8px;max-width:360px;font-size:11px;color:var(--tx2);line-height:1.5;text-align:left;cursor:pointer}
+.consent input{width:16px;height:16px;flex-shrink:0;margin-top:1px;accent-color:var(--gd);cursor:pointer}
+.consent a{color:var(--gd-l)}
+
+.casebox{background:rgba(191,161,116,.06);border:1px solid rgba(191,161,116,.2);border-radius:11px;padding:13px 15px;margin:0 0 16px;text-align:left}
+.casebox .ct{font-size:11.5px;font-weight:600;color:var(--gd-l);display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.casebox p{font-size:13px;color:var(--tx);line-height:1.55}
+.casebox .cn{font-size:10px;color:var(--tx2);opacity:.75;margin-top:6px}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.di{background:var(--nv);border:1px solid var(--hl);border-radius:10px;padding:10px 12px;text-align:left}
+.di .dl{font-size:10.5px;color:var(--tx2);margin-bottom:2px}
+.di .dv{font-size:13px;font-weight:500;color:#fff}
+.deliver{background:var(--nv);border:1px solid var(--hl);border-radius:11px;padding:14px 16px;margin-bottom:14px;text-align:left}
+.deliver h4{font-size:12.5px;font-weight:600;color:var(--gd-l);margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.deliver .dv2{display:flex;gap:9px;align-items:flex-start;padding:5px 0;font-size:13px;color:var(--tx);line-height:1.5}
+.deliver .dv2 i{color:var(--gd);font-size:15px;flex-shrink:0;margin-top:1px}
+.report-cta{background:linear-gradient(180deg,rgba(191,161,116,.1),rgba(191,161,116,.04));border:1px solid rgba(191,161,116,.3);border-radius:12px;padding:15px 16px;margin-bottom:14px;text-align:center}
+.report-cta h4{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px}
+.report-cta p{font-size:12px;color:var(--tx2);line-height:1.5;margin-bottom:11px}
+.report-cta .rrow{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.scarce{font-size:12px;color:var(--tx2);text-align:center;line-height:1.55;margin:0 0 14px;display:flex;align-items:center;justify-content:center;gap:6px}
+.scarce i{color:var(--gd)}
+.ctawrap{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:6px}
+.coolsub{font-size:12.5px;color:var(--tx2);line-height:1.6;text-align:center;max-width:460px;margin:0 auto 14px}
+.antihype{font-size:11px;color:var(--tx2);opacity:.82;text-align:center;line-height:1.55;margin-top:14px}
+.botrow{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px}
+
+.foot{border-top:1px solid var(--hl);margin-top:6px;padding:20px 1.5rem 22px;text-align:center}
+.foot img{height:26px;opacity:.7;margin-bottom:12px}
+.foot .flinks{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.foot .flinks a{font-size:12px;color:var(--gd-l);text-decoration:none}
+.foot .flinks a:hover{text-decoration:underline}
+.foot .lgpd{font-size:11px;color:var(--tx2);line-height:1.5;max-width:520px;margin:0 auto 12px}
+.foot .lgpd a{color:var(--gd-l)}
+.foot .legal{font-size:9.5px;color:var(--tx2);opacity:.6;line-height:1.5;text-align:justify}
+@media (max-width:480px){.sp-t{display:none}.head h1{font-size:16.5px}.foot .legal{text-align:left}}
+@media (prefers-reduced-motion:reduce){.fade-in,.seal,.mt,.fit .fbf,.mbf,.btn-gold.glow,.ob.sel .le{animation:none!important;transition:none!important}.lockedc.blurred{filter:none}.mt{opacity:1;transform:none}}
 </style>
 
-<div class="IX">
-  <div class="stage fade-in">
-    <div class="ixtop"><img src="assets/logo-focus.png" alt="Focus Invest"></div>
+<div class="QZ" id="qz">
+  <div class="stage">
+    <div class="topbar"><img src="assets/logo-focus.png" alt="Focus Invest"></div>
     <div class="head">
-      <div class="eye">CAMPANHA OPERAÇÕES ESTRUTURADAS</div>
-      <h1>Funil interativo — índice de links</h1>
-      <p>Todas as peças do funil de captação e qualificação de leads, reunidas em um só lugar.</p>
+      <div class="eye">DIAGNÓSTICO DE OPERAÇÕES ESTRUTURADAS</div>
+      <h1 id="h1">Operar na bolsa com risco zero parece bom demais pra ser verdade — e você está certo em desconfiar. Me dá 1 minuto e eu te mostro, com 3 operações reais, por que dá pra controlar o risco de verdade.</h1>
+      <div class="sig">André Momberger · Focus Invest</div>
     </div>
+    <div class="steps" id="steps"></div>
+    <div class="pmeta"><span class="pmc" id="pmc">Vamos começar</span><span class="pmc" id="pmn"></span></div>
+    <div class="pb"><div class="pf" id="prog" style="width:0%"></div></div>
     <div class="body">
-      <div class="flow">
-        <span class="fp">Anúncio / vídeo</span><i class="ti ti-arrow-right"></i>
-        <span class="fp">Quiz</span><i class="ti ti-arrow-right"></i>
-        <span class="fp">Análise + Agendamento</span><i class="ti ti-arrow-right"></i>
-        <span class="fp">Time comercial</span>
-      </div>
-
-      <div class="sec-t">Funil completo</div>
-      <a class="lnk" href="quiz.html">
-        <div class="ic"><i class="ti ti-clipboard-check"></i></div>
-        <div class="meta">
-          <div class="tt">Quiz de qualificação <span class="badge main">início do funil</span></div>
-          <div class="dd">7 perguntas (perfil + conhecimento) → captura de dados → resultado personalizado. Leads qualificados seguem direto para o agendamento.</div>
-        </div>
-        <i class="ti ti-external-link go"></i>
-      </a>
-      <a class="lnk" href="agendamento.html">
-        <div class="ic"><i class="ti ti-calendar-event"></i></div>
-        <div class="meta">
-          <div class="tt">Fluxo de agendamento <span class="badge step">continuação</span></div>
-          <div class="dd">Escolha de dia e horário, prova social, confirmação de contato e passaporte anti no-show (.ics, contato 51, WhatsApp). Recebe os dados do lead do quiz.</div>
-        </div>
-        <i class="ti ti-external-link go"></i>
-      </a>
-
-      <a class="lnk" href="relatorio.html?n=Ana%20Paula&w=51998877665&tier=prioritario&dor=protecao&sc=92&ci=3&ca=3&ei=2&ai=3&ti=0&fam=3">
-        <div class="ic"><i class="ti ti-file-analytics"></i></div>
-        <div class="meta">
-          <div class="tt">Análise aprofundada (entregável) <span class="badge step">PDF + WhatsApp</span></div>
-          <div class="dd">Relatório personalizado que o lead recebe: perfil, estruturas recomendadas, cenários e próximos passos. Com botão de baixar PDF e falar no WhatsApp. (Exemplo com lead fictício.)</div>
-        </div>
-        <i class="ti ti-external-link go"></i>
-      </a>
-
-      <div class="sec-t">Testar isolado</div>
-      <a class="lnk" href="agendamento.html?n=Ana%20Paula&w=51998877665&e=ana@email.com&p=prioritario">
-        <div class="ic"><i class="ti ti-user-check"></i></div>
-        <div class="meta">
-          <div class="tt">Agendamento com lead de exemplo</div>
-          <div class="dd">Abre o fluxo já preenchido com um lead fictício (Ana Paula) — útil para revisar a tela sem passar pelo quiz.</div>
-        </div>
-        <i class="ti ti-external-link go"></i>
-      </a>
-
-      <div class="note">
-        <b>Como o funil conecta:</b> ao concluir o quiz, um lead qualificado clica em "Agendar conversa gratuita" e é levado ao agendamento já com seus dados (nome, WhatsApp, e-mail, perfil) via parâmetros na URL — sem precisar digitar de novo. Na produção, esses dados também vão para o CRM/RD Station.
-      </div>
-
+      <div id="qa"></div>
+      <div class="nr"><button class="btn-gold" id="nxt" onclick="QZ_advance()">Próxima <i class="ti ti-arrow-right"></i></button></div>
+      <div id="ra" style="display:none"></div>
     </div>
-    <div class="ixfoot">
-      <img src="assets/logo-focus.png" alt="Focus Invest" style="height:24px;opacity:.7">
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:12px 0 0">
-        <a href="https://focusinvestimentos.com/" target="_blank" rel="noopener" style="font-size:12px;color:var(--gd-l);text-decoration:none">Site</a>
-        <a href="https://focusinvestimentos.com/contato/" target="_blank" rel="noopener" style="font-size:12px;color:var(--gd-l);text-decoration:none">Contato</a>
-        <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener" style="font-size:12px;color:var(--gd-l);text-decoration:none">Política de Privacidade</a>
+    <div class="foot">
+      <img src="assets/logo-focus.png" alt="Focus Invest">
+      <div class="flinks">
+        <a href="https://focusinvestimentos.com/" target="_blank" rel="noopener">Site</a>
+        <a href="https://focusinvestimentos.com/contato/" target="_blank" rel="noopener">Contato</a>
+        <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
       </div>
-      <div class="lg">A Focus Invest Agente Autônomo de Investimentos Ltda, inscrita sob o CNPJ 089246170001-05 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 (“Sociedade”), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. (“XP”) e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone 0800 722 3730.</div>
+      <div class="lgpd">Seus dados são tratados conforme a nossa <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> e a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018). Ao enviar seus dados, você autoriza o contato da Focus Invest.</div>
+      <div class="legal">A Focus Invest Agente Autônomo de Investimentos Ltda, inscrita sob o CNPJ 089246170001-05 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 (“Sociedade”), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. (“XP”) e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone 0800 722 3730.</div>
     </div>
   </div>
 </div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const RM=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const WA_TEAM='555195107857';
+function ph(){var h=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);try{parent.postMessage({focusFunil:'height',height:h},'*');}catch(e){}}
+
+/* =============================================================
+   PONTO DE INTEGRAÇÃO — CRM / RD STATION
+   Chamado quando o lead é capturado (após consentimento LGPD).
+   Para conectar o RD Station, plugue seu código dentro desta função:
+   - RD Station Forms/Conversions API, webhook, ou dataLayer/GTM.
+   O objeto `payload` já vem pronto com todos os campos do lead.
+   ============================================================= */
+function captureLead(payload){
+  try{ window.dispatchEvent(new CustomEvent('focus:lead',{detail:payload})); }catch(e){}
+  try{ (window.dataLayer=window.dataLayer||[]).push(Object.assign({event:'focus_lead'},payload)); }catch(e){}
+  // Exemplo RD Station (descomentar e ajustar quando integrar):
+  // if(window.RdIntegration){ RdIntegration.post(payload); }
+  // fetch('SEU_WEBHOOK_RD', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+}
+
+const W_INT=0.40,W_CAP=0.30,W_DOR=0.20,W_SOF=0.10;
+const DORKEYS=['protecao','timing','parado','orientacao'];
+const Q=[
+ {id:'T0',tipo:'gancho',tag:'crenca',tagtxt:'Diagnóstico · 1 de 8',
+  q:'Antes de tudo: o que mais te incomoda hoje na sua relação com a bolsa?',
+  sub:'Sem prova, sem pegadinha. Comece por onde dói.',
+  opts:['Medo de uma queda forte levar meu capital','Nunca sei a hora certa de comprar ou vender','Capital parado rendendo pouco','Falta orientação de verdade, não venda de produto'],
+  apply:i=>{D.idx.T0=i;D.dorKey=DORKEYS[i];D.dorScore=[90,70,40,75][i];}},
+ {id:'T1',tipo:'perfil',tag:'perfil',tagtxt:'Perfil financeiro · 2 de 8',
+  q:'Qual o volume aproximado do seu patrimônio investido hoje?',
+  sub:'Operações estruturadas ganham eficiência a partir de um patamar mínimo.',
+  opts:['Menos de R$ 50 mil','Entre R$ 50 mil e R$ 100 mil','Entre R$ 100 mil e R$ 500 mil','Acima de R$ 500 mil'],
+  apply:i=>{D.idx.T1=i;D.capBase=[0,1,3,4][i];},
+  insights:['Dá pra começar com estruturas mais simples — e crescer a partir delas.','Dá pra começar com estruturas mais simples — e crescer a partir delas.','Faixa ideal para estruturas com capital protegido — é exatamente onde elas fazem mais diferença.','Nesse patamar dá pra montar mais de uma estrutura ao mesmo tempo. Espaço de sobra pra proteger e capturar alta.']},
+ {id:'T2',tipo:'perfil',tag:'perfil',tagtxt:'Perfil financeiro · 3 de 8',
+  q:'Como é a sua experiência com renda variável hoje?',
+  sub:'Isso só calibra a linguagem da sua recomendação.',
+  opts:['Nunca investi em ações','Já investi, mas saí por conta dos riscos','Invisto regularmente, mas sem proteção','Invisto e conheço opções/derivativos'],
+  apply:i=>{D.idx.T2=i;D.expSc=[0,1,3,4][i];},
+  insights:[null,'Quem saiu por medo da queda é exatamente quem mais ganha com proteção de capital.','Investir sem proteção é dirigir sem cinto. Dá pra mudar isso sem complicar a sua vida.',null]},
+ {id:'T3',tipo:'perfil',tag:'perfil',tagtxt:'Perfil financeiro · 4 de 8',
+  q:'Você já tem assessor de investimentos hoje?',
+  sub:'Saber isso ajuda a entender o suporte que você recebe.',
+  opts:['Não, invisto por conta própria','Tenho, mas não estou satisfeito','Tenho e estou satisfeito, mas quero mais opções','Não tenho e estou buscando um'],
+  apply:i=>{D.idx.T3=i;D.advSc=[1,4,2,4][i];},
+  insights:[null,'Vale saber: dá pra acessar essas estruturas sem trocar de corretora nem brigar com seu assessor atual.',null,'A assessoria da Focus é gratuita — a única exigência é ter conta na XP.']},
+ {id:'T4',tipo:'perfil',tag:'perfil',tagtxt:'Perfil financeiro · 5 de 8',
+  q:'Quanto do seu patrimônio você consideraria destinar a uma operação como essa?',
+  sub:'É só uma hipótese — ajuda a desenhar a estrutura no tamanho certo.',
+  opts:['Até R$ 50 mil','Entre R$ 50 e R$ 150 mil','Entre R$ 150 e R$ 500 mil','Acima de R$ 500 mil'],
+  apply:i=>{D.idx.T4=i;D.capAloc=[0,2,3,4][i];},
+  insights:['Anotado. Esse é o tamanho que a gente usa pra calibrar a estrutura — nem mais, nem menos.','Anotado. Esse é o tamanho que a gente usa pra calibrar a estrutura — nem mais, nem menos.','Anotado. Esse é o tamanho que a gente usa pra calibrar a estrutura — nem mais, nem menos.','Anotado. Esse é o tamanho que a gente usa pra calibrar a estrutura — nem mais, nem menos.']},
+ {id:'T5',tipo:'perfil',tag:'perfil',tagtxt:'Perfil financeiro · 6 de 8',
+  q:'Se fizer sentido pra você, quando gostaria de começar?',
+  sub:'Sem compromisso — é só pra entender o seu momento.',
+  opts:['Assim que possível','Nos próximos 30 a 60 dias','Quero entender melhor antes de decidir','Por ora, só estou pesquisando'],
+  apply:i=>{D.idx.T5=i;D.intSc=[100,75,40,10][i];},
+  insights:['Perfeito. Quando a decisão já amadureceu, a gente só precisa montar a estrutura certa.',null,null,'Sem pressa nenhuma. Pesquisar antes é exatamente o que um bom investidor faz.']},
+ {id:'T6',tipo:'crenca',tag:'crenca',tagtxt:'Como você pensa · 7 de 8',
+  q:'Quando te falam em proteger 100% do seu capital na bolsa, o que passa pela sua cabeça?',
+  sub:null,
+  opts:['Parece bom demais pra ser verdade','Já ouvi falar, mas não sei como funciona','Sei que existe e quero fazer melhor','Já uso esse tipo de estrutura'],
+  apply:i=>{D.idx.T6=i;D.fam=(D.fam||0);D.fam+=[0,0,1,2][i];},
+  bastidor:'Eu ouço "parece bom demais" o tempo todo — por isso eu não peço pra você acreditar, eu mostro. No Banco do Brasil, dava pra ter 100% do capital protegido e ainda capturar 40% da alta. É matemática, não promessa. Capital protegido quer dizer que, no vencimento, você recebe pelo menos o que investiu — a proteção é montada com derivativos, não depende de governo nem da corretora.',
+  nextLabel:'Próxima'},
+ {id:'T7',tipo:'crenca',tag:'crenca',tagtxt:'Como você pensa · 8 de 8',
+  q:'Se desse pra montar uma proteção que impede sua posição de virar pó numa quebra, você usaria?',
+  sub:null,
+  opts:['Com certeza, é exatamente o que procuro','Provavelmente sim, se eu entender bem','Talvez, preciso ver funcionando','Não sei, ainda tenho dúvidas'],
+  apply:i=>{D.idx.T7=i;D.t7bonus=[5,3,1,0][i];D.fam=(D.fam||0);D.fam+=[2,2,1,0][i];},
+  bastidor:'Lembra da Americanas? Quem estava posicionado com estrutura não virou pó — a proteção segurou o capital. É esse tipo de rede que a gente monta antes, não depois. Proteger primeiro, capturar a alta depois.',
+  nextLabel:'Ver meu diagnóstico'}
+];
+const PROG=[22,38,52,66,80,90,96,100];
+
+let cur=0,ans=false;
+let D,lead;
+function resetState(){D={idx:{},dorKey:'protecao',dorScore:90,capBase:0,capAloc:0,intSc:10,expSc:0,advSc:1,t7bonus:0,fam:0};lead={};cur=0;ans=false;}
+resetState();
+
+function phaseOf(i){return i<=5?0:1}
+const PH=[['Perfil','ti-user'],['Como você pensa','ti-bulb'],['Diagnóstico','ti-chart-bar']];
+function steps(resultPhase){
+  const sec=resultPhase?2:phaseOf(cur);
+  $('steps').innerHTML=PH.map((p,i)=>{
+    let st='';
+    if(resultPhase){st=i<2?'ok':'on';}
+    else{if(i<sec)st='ok';else if(i===sec)st='on';}
+    const dot=st==='ok'?`<span class="sp-d ok"><i class="ti ti-check" style="font-size:12px"></i></span>`:`<span class="sp-d ${st}">${i+1}</span>`;
+    const ln=i<PH.length-1?`<span class="sp-ln ${st==='ok'?'ok':''}"></span>`:'';
+    return `<div class="sp">${dot}<span class="sp-t ${st}">${p[0]}</span></div>${ln}`;
+  }).join('');
+}
+function setProgress(){
+  $('prog').style.width=PROG[cur]+'%';
+  const rem=8-(cur+1);
+  if(cur>=6){$('pmc').textContent='Quase lá, montando seu diagnóstico…';$('pmn').textContent='';}
+  else{$('pmc').textContent=rem===1?'Falta só 1 toque para sua recomendação':`Faltam ${rem} toques para sua recomendação`;$('pmn').textContent=PROG[cur]+'%';}
+}
+
+function render(){
+  steps(false);setProgress();
+  const q=Q[cur],L=['A','B','C','D'],a=$('qa');
+  a.classList.remove('fade-in');void a.offsetWidth;a.classList.add('fade-in');
+  const prev=D.idx[q.id];
+  a.innerHTML=`<div class="card">
+    ${cur>0?`<button class="backbtn" onclick="QZ_back()"><i class="ti ti-arrow-left" style="font-size:14px"></i> Voltar</button>`:''}
+    <div class="itoast" id="itoast"><i class="ti ti-bulb"></i><span id="itxt"></span></div>
+    <span class="qtag ${q.tag}">${q.tagtxt}</span>
+    <div class="qt">${q.q}</div>${q.sub?`<div class="qs">${q.sub}</div>`:''}
+    <div class="opts">${q.opts.map((o,i)=>`<button class="ob ${prev===i?'sel':''}" data-i="${i}" onclick="QZ_pick(${i})"><span class="le">${prev===i?'<i class="ti ti-check"></i>':L[i]}</span><span>${o}</span></button>`).join('')}</div>
+    ${q.tipo==='crenca'?`<div class="ex" id="ex" style="${prev!==undefined?'display:block':''}"><div class="who"><i class="ti ti-quote"></i>André Momberger</div><span id="extxt">${prev!==undefined?q.bastidor:''}</span><div class="calib">Não tem resposta certa aqui — isso só calibra o tom da sua recomendação. A maioria erra, e tudo bem.</div></div>`:''}
+  </div>`;
+  if(q.tipo==='crenca'&&prev!==undefined){$('nxt').innerHTML=`${q.nextLabel} <i class="ti ti-arrow-right"></i>`;$('nxt').style.display='inline-flex';}
+  else $('nxt').style.display='none';
+  ans=false;ph();
+}
+
+window.QZ_pick=i=>{
+  if(ans)return;
+  const q=Q[cur];
+  if(q.tipo==='crenca'){
+    ans=true;q.apply(i);
+    document.querySelectorAll('.ob').forEach(b=>{b.classList.add('lk');b.classList.remove('sel');if(+b.dataset.i===i)b.classList.add('sel')});
+    $('extxt').textContent=q.bastidor;$('ex').style.display='block';
+    $('nxt').innerHTML=`${q.nextLabel} <i class="ti ti-arrow-right"></i>`;$('nxt').style.display='inline-flex';ph();
+  }else{
+    ans=true;q.apply(i);
+    document.querySelectorAll('.ob').forEach(b=>{b.classList.add('lk');b.classList.remove('sel');if(+b.dataset.i===i)b.classList.add('sel')});
+    const ins=q.insights?q.insights[i]:null;
+    if(ins&&!RM){$('itxt').textContent=ins;$('itoast').classList.add('show');ph();setTimeout(QZ_advance,1150);}
+    else setTimeout(QZ_advance,400);
+  }
+};
+window.QZ_advance=()=>{ if(cur<Q.length-1){cur++;render();} else showResult(true); };
+window.QZ_back=()=>{ if(cur>0){cur--;render();} };
+
+function classify(){
+  const CAP=((D.capBase/4)*0.5+(D.capAloc/4)*0.5)*100;
+  const INT=Math.min(100,D.intSc+D.t7bonus);
+  const DOR=D.dorScore;
+  const SOF=((D.expSc/4)*0.5+(D.advSc/4)*0.5)*100;
+  const score=Math.round(W_INT*INT+W_CAP*CAP+W_DOR*DOR+W_SOF*SOF);
+  const capGate=(D.capAloc<=1&&D.capBase<=1);
+  const soPesq=D.intSc<=10;
+  let tier;
+  if(capGate){tier=score>=55?'aquecendo':'construcao';}
+  else if(soPesq){tier=score>=50?'qualificado':'aquecendo';}
+  else if(score>=70&&INT>=75)tier='prioritario';
+  else if(score>=50)tier='qualificado';
+  else if(score>=40)tier='aquecendo';
+  else tier='construcao';
+  return {CAP,INT,DOR,SOF,score,tier};
+}
+function archetype(){
+  if(D.dorKey==='protecao')return{name:'O Construtor Protegido',icon:'ti-shield-check'};
+  if(D.dorKey==='timing')return{name:'O Estrategista de Timing',icon:'ti-clock-bolt'};
+  const capHigh=(D.capBase>=4||D.capAloc>=4);
+  if(capHigh&&D.advSc===2)return{name:'O Patrimonialista',icon:'ti-building-bank'};
+  if((D.capAloc<=1&&D.capBase<=1)||D.intSc<=10)return{name:'O Explorador',icon:'ti-compass'};
+  return{name:'O Construtor Protegido',icon:'ti-shield-check'};
+}
+const CAPL=['Menos de R$ 50 mil','R$ 50–100 mil','R$ 100–500 mil','Acima de R$ 500 mil'];
+const EXPL=['Sem experiência em RV','Experiência interrompida','Investe sem proteção','Opera com derivativos'];
+const ADVL=['Sem assessor','Insatisfeito com assessor','Com assessor, quer mais','Buscando assessor'];
+const OBJL=['Proteger o capital','Acertar o timing','Fazer o capital render','Ter orientação real'];
+const TKL=['Até R$ 50 mil','R$ 50–150 mil','R$ 150–500 mil','Acima de R$ 500 mil'];
+const TML=['Imediato','30–60 dias','Estudando','Pesquisando'];
+function famLabel(){return D.fam>=3?'Avançado':D.fam>=1?'Informado':'Iniciado';}
+function caseFor(){
+  if(D.dorKey==='protecao')return{p:'quando Lojas Americanas desabou, quem estava com a estrutura certa não viu a posição virar pó — a proteção segurou o capital. É esse chão que a proteção te dá.'};
+  if(D.dorKey==='timing')return{p:'em Vale, a estrutura permitiu sair antes da queda e recomprar mais barato depois — sem precisar acertar o timing no olho.'};
+  return{p:'em Banco do Brasil, a estrutura entregou 100% do capital protegido e ainda 40% de captura na alta — com o time montando, você não precisa entender a mecânica.'};
+}
+
+let R=null;
+function showResult(teaser){
+  R=classify();const arch=archetype();
+  steps(true);$('prog').style.width='100%';$('pmc').textContent='Diagnóstico pronto';$('pmn').textContent='';
+  $('qa').style.display='none';$('nxt').style.display='none';
+  const nm=lead.name?lead.name.split(' ')[0]:'';
+  const capV=R.CAP>=66?'Alta':R.CAP>=33?'Média':'Inicial';
+  const intV=R.INT>=75?'Imediata':R.INT>=40?'30–60 dias':'Explorando';
+  const necV=R.DOR>=75?'Alta':R.DOR>=50?'Média':'Baixa';
+  const colC=R.CAP>=66?'var(--ok)':R.CAP>=33?'var(--gd)':'#d99a3a';
+  const colI=R.INT>=75?'var(--ok)':R.INT>=40?'var(--gd)':'#d99a3a';
+  const colN=R.DOR>=75?'var(--ok)':R.DOR>=50?'var(--gd)':'#d99a3a';
+  const cs=caseFor();
+  let anchor;
+  if(R.tier==='prioritario'&&D.dorKey==='protecao')anchor=`${nm}, o seu problema nunca foi a bolsa — foi operar sem proteção. Isso a gente resolve numa conversa.`;
+  else if(R.tier==='prioritario'||R.tier==='qualificado')anchor='Você tem com o que trabalhar e a dor certa. Falta só montar a estrutura no seu tamanho.';
+  else if(R.tier==='aquecendo')anchor='Falta um passo — e ele é mais sobre o seu momento do que sobre você.';
+  else anchor='Quando chegar lá, a porta vai estar aberta. Sem pressa.';
+  const videoBtn=`<button class="btn-ghost" onclick="QZ_video()"><i class="ti ti-player-play" style="font-size:15px"></i> Ver o vídeo do André</button>`;
+
+  const lockedInner=`
+    ${R.tier==='construcao'?`<div class="coolsub">Essas operações ganham tração a partir de R$ 100 mil alocáveis. Mesmo assim, preparei uma análise pra você — e quando chegar lá, você vai estar pronto.</div>`:''}
+    <div class="report-cta">
+      <h4><i class="ti ti-file-analytics" style="font-size:16px;color:var(--gd);vertical-align:-2px"></i> Sua análise completa está pronta</h4>
+      <p>Um relatório aprofundado do seu perfil: estruturas recomendadas, cenários e próximos passos. Veja agora e receba no seu WhatsApp.</p>
+      <div class="rrow">
+        <button class="btn-gold glow" onclick="QZ_report()">Ver minha análise completa <i class="ti ti-arrow-right"></i></button>
+        <button class="btn-ghost" onclick="QZ_wa()"><i class="ti ti-brand-whatsapp" style="font-size:16px"></i> Receber no WhatsApp</button>
+        ${(R.tier==='construcao'||R.tier==='aquecendo')?videoBtn:''}
+      </div>
+    </div>
+    <div class="casebox">
+      <div class="ct"><i class="ti ti-bookmark"></i> Um caso parecido com o seu</div>
+      <p>${cs.p}</p>
+      <div class="cn">Caso real de cliente · resultados passados não garantem resultados futuros.</div>
+    </div>
+    <div class="dgrid">
+      <div class="di"><div class="dl">Patrimônio</div><div class="dv">${CAPL[D.idx.T1??0]}</div></div>
+      <div class="di"><div class="dl">Experiência</div><div class="dv">${EXPL[D.idx.T2??0]}</div></div>
+      <div class="di"><div class="dl">Assessoria</div><div class="dv">${ADVL[D.idx.T3??0]}</div></div>
+      <div class="di"><div class="dl">Objetivo</div><div class="dv">${OBJL[D.idx.T0??0]}</div></div>
+    </div>
+    <div class="deliver">
+      <h4><i class="ti ti-checklist" style="font-size:15px"></i> O que a conversa entrega</h4>
+      <div class="dv2"><i class="ti ti-stethoscope"></i> Um diagnóstico do seu caso, sem custo</div>
+      <div class="dv2"><i class="ti ti-settings-cog"></i> Você não precisa entender derivativos — o time monta e gerencia</div>
+      <div class="dv2"><i class="ti ti-lock-open"></i> Sem compromisso; a única exigência é ter conta na XP</div>
+    </div>
+    <div class="scarce"><i class="ti ti-shield-check"></i> Seus dados estão protegidos. Quem te atende é o time da Focus, não uma esteira de vendas.</div>
+    <div class="antihype">Aqui ninguém promete retorno nem risco zero de verdade. A gente mostra como controlar o risco, com método. O resto é conversa.</div>`;
+
+  const r=$('ra');r.style.display='block';r.classList.add('fade-in');
+  r.innerHTML=`<div class="card res">
+    <div class="rtop">
+      <div class="seal"><i class="ti ${arch.icon}" style="font-size:15px;color:var(--gd)"></i><span class="lab">Seu perfil:</span><span class="arch">${arch.name}</span></div>
+      <h2 id="reshead">Seu diagnóstico está pronto.</h2>
+      <div class="anchor" id="resanchor" style="${teaser?'display:none':''}">${anchor}</div>
+    </div>
+    <div class="fit"><div class="fv" id="fitv">0</div><div class="fl">PONTO DE ADERÊNCIA</div><div class="fbar"><div class="fbf" id="fitbar"></div></div></div>
+    <div class="mts" id="mts">
+      <div class="mt"><div class="ml"><i class="ti ti-wallet" style="font-size:13px"></i> Capacidade</div><div class="mv">${capV}</div><div class="mbar"><div class="mbf" data-w="${Math.round(R.CAP)}" style="background:${colC}"></div></div></div>
+      <div class="mt"><div class="ml"><i class="ti ti-flame" style="font-size:13px"></i> Intenção</div><div class="mv">${intV}</div><div class="mbar"><div class="mbf" data-w="${Math.round(R.INT)}" style="background:${colI}"></div></div></div>
+      <div class="mt"><div class="ml"><i class="ti ti-target" style="font-size:13px"></i> Sua necessidade</div><div class="mv">${necV}</div><div class="mbar"><div class="mbf" data-w="${Math.round(R.DOR)}" style="background:${colN}"></div></div></div>
+      <div class="mt"><div class="ml"><i class="ti ti-book" style="font-size:13px"></i> Jornada de aprendizado</div><div class="mv">${famLabel()}</div><div class="mbar"><div class="mbf" data-w="${D.fam>=3?100:D.fam>=1?60:30}" style="background:var(--gd)"></div></div></div>
+    </div>
+    <div class="lockedz">
+      <div class="lockedc ${teaser?'blurred':''}" id="lockedc">${lockedInner}</div>
+      ${teaser?`<div class="unlock" id="unlock">
+        <div class="ut">Seu diagnóstico está pronto.</div>
+        <div class="ud">Deixa seu WhatsApp pra liberar a recomendação completa e receber sua análise. Se fizer sentido pro seu momento, uma conversa sem compromisso com o time.</div>
+        <input type="text" id="u-name" placeholder="Como prefere ser chamado? (opcional)">
+        <input type="tel" id="u-phone" placeholder="Seu WhatsApp (com DDD)">
+        <div class="uerr" id="u-err">Informe um número válido com DDD</div>
+        <label class="consent"><input type="checkbox" id="u-consent"><span>Autorizo a Focus Invest a entrar em contato comigo e concordo com a <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> e o tratamento dos meus dados conforme a LGPD.</span></label>
+        <div class="uerr" id="u-cerr">É preciso autorizar o contato para liberar sua análise</div>
+        <button class="btn-gold glow" onclick="QZ_unlock()">Liberar minha recomendação <i class="ti ti-lock-open" style="font-size:15px"></i></button>
+        <div class="consent" style="justify-content:center;cursor:default"><i class="ti ti-shield-check" style="font-size:13px;color:var(--gd)"></i> Sem robô, sem spam. É o time da Focus, não uma esteira de vendas.</div>
+      </div>`:''}
+    </div>
+    ${!teaser?`<div class="botrow"><button class="discreet" onclick="QZ_editar()"><i class="ti ti-arrow-back-up" style="font-size:13px;vertical-align:-2px"></i> Voltar e ajustar</button><button class="discreet" onclick="QZ_save()"><i class="ti ti-download" style="font-size:13px;vertical-align:-2px"></i> Salvar diagnóstico</button><button class="discreet" onclick="QZ_reset()">Refazer</button></div>`:''}
+  </div>`;
+  animateMeters();ph();
+}
+function animateMeters(){
+  const fitTarget=R.score;
+  if(RM){$('fitv').textContent=fitTarget;$('fitbar').style.width=fitTarget+'%';document.querySelectorAll('.mt').forEach(m=>{m.classList.add('in');m.querySelector('.mbf').style.width=m.querySelector('.mbf').dataset.w+'%';});ph();return;}
+  setTimeout(()=>{$('fitbar').style.width=fitTarget+'%';},60);
+  let s=null;function cu(ts){if(!s)s=ts;const p=Math.min(1,(ts-s)/900);$('fitv').textContent=Math.round(p*fitTarget);if(p<1)requestAnimationFrame(cu);else ph();}requestAnimationFrame(cu);
+  document.querySelectorAll('.mt').forEach((m,k)=>{setTimeout(()=>{m.classList.add('in');const f=m.querySelector('.mbf');f.style.width=f.dataset.w+'%';if(k===3)setTimeout(ph,400);},120+k*150);});
+}
+window.QZ_unlock=()=>{
+  const p=$('u-phone').value.trim();
+  $('u-err').style.display='none';$('u-cerr').style.display='none';
+  let ok=true;
+  if(p.replace(/\D/g,'').length<10){$('u-err').style.display='block';ok=false;}
+  if(!$('u-consent').checked){$('u-cerr').style.display='block';ok=false;}
+  if(!ok)return;
+  let n=$('u-name').value.trim().replace(/[\u{1F000}-\u{1FFFF}☀-➿]/gu,'').slice(0,40);
+  if(n&&n===n.toUpperCase())n=n.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+  lead={name:n||'Investidor',phone:p,consent:true};
+  captureLead({nome:lead.name,whatsapp:lead.phone,consentimento_lgpd:true,perfil:R.tier,arquetipo:archetype().name,dor:D.dorKey,score:R.score,ticket:TKL[D.idx.T4??0],timing:TML[D.idx.T5??3],patrimonio:CAPL[D.idx.T1??0],origem:'quiz_estruturadas'});
+  const u=$('unlock');if(u){u.style.transition='opacity .35s';u.style.opacity='0';setTimeout(()=>u.remove(),350);}
+  $('lockedc').classList.remove('blurred');
+  const nm=lead.name.split(' ')[0];
+  $('reshead').innerHTML=({prioritario:`${nm}, seu perfil é <em>exatamente</em> para quem essas estruturas foram desenhadas.`,qualificado:`${nm}, faz <em>total sentido</em> essas estruturas entrarem no seu radar.`,aquecendo:`${nm}, você está no <em>caminho certo</em> — falta pouco pra fazer sentido completo.`,construcao:`${nm}, vou ser honesto: <em>ainda não é a sua hora</em> — e eu prefiro te dizer isso a te empurrar algo.`})[R.tier];
+  $('resanchor').style.display='';
+  const res=$('ra').querySelector('.res');
+  if(!res.querySelector('.botrow')){const bd=document.createElement('div');bd.className='botrow';bd.innerHTML=`<button class="discreet" onclick="QZ_editar()"><i class="ti ti-arrow-back-up" style="font-size:13px;vertical-align:-2px"></i> Voltar e ajustar</button><button class="discreet" onclick="QZ_save()"><i class="ti ti-download" style="font-size:13px;vertical-align:-2px"></i> Salvar diagnóstico</button><button class="discreet" onclick="QZ_reset()">Refazer</button>`;res.appendChild(bd);}
+  setTimeout(ph,450);
+};
+function reportParams(){return new URLSearchParams({n:lead.name||'Investidor',w:lead.phone||'',tier:R.tier,dor:D.dorKey,sc:String(R?R.score:0),ci:String(D.idx.T1??0),ca:String(D.idx.T4??0),ei:String(D.idx.T2??0),ai:String(D.idx.T3??0),ti:String(D.idx.T5??3),fam:String(D.fam||0)}).toString();}
+window.QZ_report=()=>{window.open('relatorio.html?'+reportParams(),'_blank');};
+window.QZ_wa=()=>{const nm=(lead.name||'Investidor').split(' ')[0];const arch=archetype().name;const msg=encodeURIComponent(`Olá! Fiz o diagnóstico de operações estruturadas. Meu perfil: ${arch}. Sou o(a) ${nm} e quero receber minha análise completa.`);window.open('https://wa.me/'+WA_TEAM+'?text='+msg,'_blank');};
+window.QZ_go=perfil=>{
+  const params={n:lead.name||'Investidor',w:lead.phone||'',e:'',p:perfil,tk:TKL[D.idx.T4??0],tm:TML[D.idx.T5??3],dor:D.dorKey,sc:String(R?R.score:0)};
+  location.href='agendamento.html?'+new URLSearchParams(params).toString();
+};
+window.QZ_video=()=>{window.open('https://focusinvestimentos.com/estruturadas/','_blank');};
+window.QZ_editar=()=>{$('ra').style.display='none';$('ra').innerHTML='';$('qa').style.display='block';cur=Q.length-1;ans=false;render();ph();};
+window.QZ_reset=()=>{resetState();$('ra').style.display='none';$('ra').innerHTML='';$('qa').style.display='block';render();ph();};
+window.QZ_save=()=>{
+  try{
+    const arch=archetype();const nm=(lead.name||'Investidor').split(' ')[0];
+    const c=document.createElement('canvas');c.width=1080;c.height=1080;const x=c.getContext('2d');
+    x.fillStyle='#123245';x.fillRect(0,0,1080,1080);x.fillStyle='#0e2733';x.fillRect(70,70,940,940);
+    x.fillStyle='#bfa174';x.fillRect(70,70,940,8);x.textAlign='center';
+    x.fillStyle='#a6b5c1';x.font='600 26px Poppins,sans-serif';x.fillText('FOCUS INVEST · DIAGNÓSTICO',540,270);
+    x.fillStyle='#ffffff';x.font='400 40px Poppins,sans-serif';x.fillText('Meu perfil de investidor:',540,450);
+    x.fillStyle='#d8c39c';x.font='600 60px Poppins,sans-serif';x.fillText(arch.name,540,545);
+    x.fillStyle='#a6b5c1';x.font='400 34px Poppins,sans-serif';x.fillText(nm,540,645);
+    x.strokeStyle='#bfa174';x.lineWidth=2;x.beginPath();x.moveTo(440,710);x.lineTo(640,710);x.stroke();
+    x.fillStyle='#bfa174';x.font='600 30px Poppins,sans-serif';x.fillText('Operações estruturadas',540,870);
+    x.fillStyle='#a6b5c1';x.font='400 24px Poppins,sans-serif';x.fillText('André Momberger · Focus Invest',540,918);
+    const a=document.createElement('a');a.href=c.toDataURL('image/png');a.download='meu-diagnostico-focus.png';document.body.appendChild(a);a.click();a.remove();
+  }catch(e){try{navigator.clipboard.writeText('Meu perfil Focus Invest: '+archetype().name+' — operações estruturadas.');}catch(_){}}
+};
+
+window.addEventListener('load',ph);
+if(window.ResizeObserver)new ResizeObserver(ph).observe(document.body);
+setInterval(ph,700);
+render();
+})();
+</script>
 </div>
 </body>
 </html>
