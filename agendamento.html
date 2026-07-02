@@ -6,7 +6,7 @@
 <title>Focus Invest — Fluxo de Agendamento (Estruturadas)</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
 <style>
-  body{margin:0;background:#070d18;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px}
+  body{margin:0;background:#07161e;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px}
   #host{width:100%;max-width:680px}
 </style>
 </head>
@@ -16,9 +16,16 @@
 <h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Fluxo de agendamento premium após o quiz de operações estruturadas — escolha de dia, horário e confirmação anti no-show</h2>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 .SCH *{box-sizing:border-box;margin:0;padding:0}
-.SCH{--nv:#0A1628;--nv2:#132240;--nv3:#0F1B30;--gd:#C9A84C;--gd-l:#F5E6B8;--gd-d:#8B6914;--tx:#E7ECF5;--tx2:#9DAAC0;--hl:#25324a;font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums;padding:.5rem 0}
+.SCH{--nv:#0e2733;--nv2:#123245;--nv3:#0b202b;--gd:#bfa174;--gd-l:#d8c39c;--gd-d:#8f7748;--tx:#ffffff;--tx2:#a6b5c1;--hl:#244a5e;font-family:'Poppins',sans-serif;font-variant-numeric:tabular-nums;padding:.5rem 0}
+.sch-top{display:flex;align-items:center;justify-content:center;padding:16px 0 14px;border-bottom:1px solid var(--hl)}
+.sch-top img{height:30px;opacity:.95}
+.sch-foot{border-top:1px solid var(--hl);padding:18px 1.25rem 20px;text-align:center}
+.sch-foot img{height:22px;opacity:.65;margin-bottom:10px}
+.sch-foot .fl{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-bottom:11px}
+.sch-foot .fl a{font-size:11.5px;color:var(--gd-l);text-decoration:none}
+.sch-foot .lg{font-size:9.5px;color:var(--tx2);opacity:.6;line-height:1.5;text-align:justify}
 .stage{background:var(--nv);border:1px solid rgba(201,168,76,.18);border-radius:18px;overflow:hidden;position:relative;color:var(--tx)}
 .stage::before{content:'';position:absolute;top:0;left:0;right:0;height:160px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(201,168,76,.10) 0%,transparent 70%);pointer-events:none}
 
@@ -166,8 +173,18 @@
 
 <div class="SCH" id="sch">
   <div class="stage" id="stage">
+    <div class="sch-top"><img src="assets/logo-focus.png" alt="Focus Invest"></div>
     <div id="screen"></div>
     <div class="toast" id="toast"></div>
+    <div class="sch-foot">
+      <img src="assets/logo-focus.png" alt="Focus Invest">
+      <div class="fl">
+        <a href="https://focusinvestimentos.com/" target="_blank" rel="noopener">Site</a>
+        <a href="https://focusinvestimentos.com/contato/" target="_blank" rel="noopener">Contato</a>
+        <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
+      </div>
+      <div class="lg">A Focus Invest Agente Autônomo de Investimentos Ltda, inscrita sob o CNPJ 089246170001-05 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 (“Sociedade”), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. (“XP”) e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone 0800 722 3730.</div>
+    </div>
   </div>
 </div>
 
@@ -397,11 +414,11 @@ window.SCH_ics=()=>{
   toast('Evento adicionado à sua agenda.');
 };
 window.SCH_vcard=()=>{
-  const v=['BEGIN:VCARD','VERSION:3.0','FN:Focus Invest (51)','ORG:Focus Invest','TEL;TYPE=CELL:+5551999999999','NOTE:Ligação do seu agendamento de operações estruturadas.','END:VCARD'].join('\r\n');
+  const v=['BEGIN:VCARD','VERSION:3.0','FN:Focus Invest (51)','ORG:Focus Invest','TEL;TYPE=CELL:+555195107857','NOTE:Ligação do seu agendamento de operações estruturadas.','END:VCARD'].join('\r\n');
   dl('focus-invest-51.vcf',v,'text/vcard');
   toast('Contato salvo. Agora você reconhece a ligação.');
 };
-window.SCH_wa=()=>{const msg=encodeURIComponent(`Olá! Confirmo meu agendamento ${sel.code} — ${fmtTicket(DAYS[sel.dayIdx],sel.slot)}.`);window.open('https://wa.me/5551999999999?text='+msg,'_blank');};
+window.SCH_wa=()=>{const msg=encodeURIComponent(`Olá! Confirmo meu agendamento ${sel.code} — ${fmtTicket(DAYS[sel.dayIdx],sel.slot)}.`);window.open('https://wa.me/555195107857?text='+msg,'_blank');};
 window.SCH_xp=()=>{toast('Abrindo orientação de abertura de conta XP…');};
 window.SCH_reset=()=>{sel={dayIdx:null,slot:null,useAlt:false,altOk:false,code:null};renderTrigger();};
 

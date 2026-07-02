@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Invest — Sua análise de operações estruturadas</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--nv:#0e2733;--nv2:#123245;--nv3:#0b202b;--gd:#bfa174;--gd-l:#d8c39c;--gd-d:#8f7748;--tx:#fff;--tx2:#a6b5c1;--hl:#244a5e;--ok:#6ac0a0}
+body{background:#07161e;font-family:'Poppins',sans-serif;color:var(--tx);padding:26px 16px;display:flex;justify-content:center}
+.wrap{width:100%;max-width:760px}
+.doc{background:var(--nv);border:1px solid rgba(191,161,116,.2);border-radius:16px;overflow:hidden}
+.dhead{background:var(--nv2);padding:26px 30px 22px;border-bottom:1px solid var(--hl);position:relative}
+.dhead::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gd-d),var(--gd),var(--gd-l))}
+.dhead img{height:32px;margin-bottom:16px}
+.dhead .eye{font-size:11px;letter-spacing:1.6px;color:var(--gd);font-weight:600;margin-bottom:6px}
+.dhead h1{font-size:23px;font-weight:600;color:#fff;line-height:1.3}
+.dhead .meta{font-size:12.5px;color:var(--tx2);margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
+.dhead .meta b{color:var(--gd-l);font-weight:500}
+.sec{padding:24px 30px;border-bottom:1px solid var(--hl)}
+.sec:last-of-type{border-bottom:none}
+.sec .lbl{font-size:11px;letter-spacing:1.2px;color:var(--gd);font-weight:600;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.sec h2{font-size:19px;font-weight:600;color:#fff;line-height:1.35;margin-bottom:8px}
+.sec p{font-size:14px;color:var(--tx2);line-height:1.7;margin-bottom:10px}
+.sec p b{color:var(--tx);font-weight:500}
+.sec p em{color:var(--gd-l);font-style:normal;font-weight:500}
+.archrow{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.archicon{width:52px;height:52px;border-radius:12px;background:rgba(191,161,116,.12);border:1px solid rgba(191,161,116,.35);display:flex;align-items:center;justify-content:center;color:var(--gd);font-size:26px;flex-shrink:0}
+.archrow .an{font-size:20px;font-weight:600;color:#fff}
+.archrow .as{font-size:12.5px;color:var(--tx2)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 4px}
+.metric{background:var(--nv2);border:1px solid var(--hl);border-radius:10px;padding:12px 10px;text-align:center}
+.metric .mv{font-size:15px;font-weight:600;color:#fff}
+.metric .ml{font-size:10px;color:var(--tx2);margin-top:2px}
+.struct{background:var(--nv2);border:1px solid var(--hl);border-radius:12px;padding:16px 18px;margin-bottom:12px;position:relative;overflow:hidden}
+.struct::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--gd)}
+.struct h3{font-size:15.5px;font-weight:600;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.struct h3 i{color:var(--gd);font-size:18px}
+.struct .stag{display:inline-block;font-size:10.5px;font-weight:500;color:var(--gd-l);background:rgba(191,161,116,.12);padding:2px 9px;border-radius:99px;margin-left:auto}
+.struct p{font-size:13px;color:var(--tx2);line-height:1.6;margin-bottom:6px}
+.struct .rec{font-size:12.5px;color:var(--gd-l);line-height:1.5;display:flex;gap:6px;align-items:flex-start;margin-top:8px}
+.struct .rec i{flex-shrink:0;margin-top:1px}
+.scen{display:grid;grid-template-columns:1fr;gap:10px}
+.scenrow{display:flex;gap:12px;align-items:flex-start;background:var(--nv2);border:1px solid var(--hl);border-radius:10px;padding:13px 15px}
+.scenrow .si{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.scenrow.down .si{background:rgba(217,154,58,.14);color:#d99a3a}
+.scenrow.up .si{background:rgba(106,192,160,.14);color:var(--ok)}
+.scenrow.flat .si{background:rgba(166,181,193,.12);color:var(--tx2)}
+.scenrow .st{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:2px}
+.scenrow .sd{font-size:12.5px;color:var(--tx2);line-height:1.55}
+.steps{counter-reset:s;list-style:none}
+.steps li{position:relative;padding:0 0 14px 40px;counter-increment:s;font-size:13.5px;color:var(--tx2);line-height:1.6}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;width:26px;height:26px;border-radius:50%;background:var(--gd);color:var(--nv);font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center}
+.steps li::after{content:'';position:absolute;left:12.5px;top:26px;bottom:0;width:1px;background:var(--hl)}
+.steps li:last-child::after{display:none}
+.steps li b{color:#fff;font-weight:500}
+.actions{background:var(--nv2);padding:24px 30px}
+.actions h3{font-size:16px;font-weight:600;color:#fff;text-align:center;margin-bottom:4px}
+.actions .asub{font-size:12.5px;color:var(--tx2);text-align:center;margin-bottom:16px;line-height:1.5}
+.arow{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{border:none;padding:13px 22px;border-radius:10px;font-size:14.5px;font-weight:600;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all .15s}
+.btn-gold{background:linear-gradient(180deg,var(--gd),var(--gd-d));color:#1a1206}
+.btn-gold:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn-wa{background:#25623f;color:#fff}
+.btn-wa:hover{background:#2c744a}
+.btn-ghost{background:transparent;border:1px solid var(--hl);color:var(--tx2)}
+.btn-ghost:hover{border-color:var(--gd);color:var(--gd-l)}
+.disc{font-size:11px;color:var(--tx2);opacity:.85;line-height:1.55;text-align:center;margin-top:16px}
+.foot{padding:22px 30px 26px;text-align:center}
+.foot img{height:24px;opacity:.7;margin-bottom:12px}
+.foot .flinks{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.foot .flinks a{font-size:12px;color:var(--gd-l);text-decoration:none}
+.foot .legal{font-size:9.5px;color:var(--tx2);opacity:.6;line-height:1.5;text-align:justify}
+.notice{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--nv2);border:1px solid var(--gd);color:var(--gd-l);font-size:12.5px;padding:10px 18px;border-radius:10px;opacity:0;transition:opacity .25s;z-index:20}
+.notice.show{opacity:1}
+@media (max-width:520px){.metrics{grid-template-columns:1fr 1fr}.dhead,.sec,.actions,.foot{padding-left:20px;padding-right:20px}.foot .legal{text-align:left}}
+@media print{body{background:#fff;padding:0}.actions{display:none}.notice{display:none}.doc{border:none;border-radius:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="doc" id="doc">
+    <div class="dhead">
+      <img src="assets/logo-focus.png" alt="Focus Invest">
+      <div class="eye">ANÁLISE PERSONALIZADA · OPERAÇÕES ESTRUTURADAS</div>
+      <h1 id="h1">Sua análise de operações estruturadas</h1>
+      <div class="meta" id="meta"></div>
+    </div>
+    <div id="content"></div>
+    <div class="actions">
+      <h3>Receba esta análise e leve para a conversa</h3>
+      <div class="asub">Sua análise completa, pronta para o time montar a estrutura no seu tamanho.</div>
+      <div class="arow">
+        <button class="btn btn-wa" onclick="R_wa()"><i class="ti ti-brand-whatsapp" style="font-size:18px"></i> Receber no WhatsApp</button>
+        <button class="btn btn-gold" onclick="R_pdf()"><i class="ti ti-download" style="font-size:17px"></i> Baixar em PDF</button>
+        <button class="btn btn-ghost" onclick="R_agendar()"><i class="ti ti-calendar" style="font-size:16px"></i> Agendar conversa</button>
+      </div>
+      <div class="disc">Este material é educativo e personalizado a partir das suas respostas. Não constitui recomendação ou oferta de investimento. O investimento em ações e derivativos envolve risco; resultados passados não garantem resultados futuros.</div>
+    </div>
+    <div class="foot">
+      <img src="assets/logo-focus.png" alt="Focus Invest">
+      <div class="flinks">
+        <a href="https://focusinvestimentos.com/" target="_blank" rel="noopener">Site</a>
+        <a href="https://focusinvestimentos.com/contato/" target="_blank" rel="noopener">Contato</a>
+        <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
+      </div>
+      <div class="legal">A Focus Invest Agente Autônomo de Investimentos Ltda, inscrita sob o CNPJ 089246170001-05 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 (“Sociedade”), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. (“XP”) e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone 0800 722 3730.</div>
+    </div>
+  </div>
+</div>
+<div class="notice" id="notice"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const P=new URLSearchParams(location.search);
+const WA_TEAM='555195107857';
+const nome=(P.get('n')||'Investidor').trim();const primeiro=nome.split(' ')[0];
+const w=P.get('w')||'';const tier=P.get('tier')||'qualificado';const dor=P.get('dor')||'protecao';
+const sc=+(P.get('sc')||0),ci=+(P.get('ci')||0),ca=+(P.get('ca')||0),ei=+(P.get('ei')||0),ai=+(P.get('ai')||0),ti=+(P.get('ti')||3),fam=+(P.get('fam')||0);
+const CAPL=['Menos de R$ 50 mil','R$ 50–100 mil','R$ 100–500 mil','Acima de R$ 500 mil'];
+const EXPL=['sem experiência em renda variável','com experiência interrompida por medo do risco','que investe, mas sem proteção','que já opera com derivativos'];
+const ADVL=['sem assessor hoje','com um assessor que não te satisfaz','com assessor, mas em busca de mais opções','em busca de um assessor'];
+const TKL=['Até R$ 50 mil','R$ 50–150 mil','R$ 150–500 mil','Acima de R$ 500 mil'];
+const TML=['imediato','nos próximos 30–60 dias','ainda estudando','em pesquisa'];
+const MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+
+function arch(){
+  if(dor==='protecao')return{n:'O Construtor Protegido',i:'ti-shield-check',d:'Você prioriza preservar o que já construiu. Seu foco é participar da bolsa sem correr o risco de uma queda forte apagar seu capital.'};
+  if(dor==='timing')return{n:'O Estrategista de Timing',i:'ti-clock-bolt',d:'Sua maior questão é o momento de entrar e sair. Você quer estruturas que reduzam a dependência de acertar o tempo do mercado.'};
+  const capHigh=(ci>=3||ca>=3);
+  if(capHigh&&ai===2)return{n:'O Patrimonialista',i:'ti-building-bank',d:'Você tem patrimônio relevante e busca eficiência e otimização — proteger e potencializar o que já tem, com método.'};
+  if((ca===0&&ci<=1)||ti===3)return{n:'O Explorador',i:'ti-compass',d:'Você está entendendo o terreno antes de decidir — e essa é a postura certa. Este material é o seu ponto de partida.'};
+  return{n:'O Construtor Protegido',i:'ti-shield-check',d:'Você prioriza preservar o que já construiu, participando da bolsa com o risco sob controle.'};
+}
+function famLabel(){return fam>=3?'Avançado':fam>=1?'Informado':'Iniciado';}
+function capV(){const v=((([0,1,3,4][ci])/4)*0.5+(([0,2,3,4][ca])/4)*0.5)*100;return v>=66?'Alta':v>=33?'Média':'Inicial';}
+function intV(){return [100,75,40,10][ti]>=75?'Imediata':[100,75,40,10][ti]>=40?'30–60 dias':'Explorando';}
+function necV(){return dor==='protecao'?'Alta':dor==='orientacao'?'Alta':dor==='timing'?'Média':'Média';}
+
+/* estruturas recomendadas por dor */
+const STRUCTS={
+  protecao:[
+    {t:'Capital Protegido',i:'ti-shield-check',tag:'Proteção total',
+     d:'Uma estrutura em que, no vencimento, você recebe <b>pelo menos o valor investido</b> — mesmo se o ativo cair. Na alta, você participa do ganho até um teto definido no início.',
+     r:'É o coração do seu perfil: elimina o medo da queda que te trava, sem tirar você da bolsa.'},
+    {t:'Collar (proteção de baixo custo)',i:'ti-arrows-minimize',tag:'Custo reduzido',
+     d:'Trava uma <b>faixa de resultado</b>: uma opção de venda te protege na queda, financiada pela venda de uma opção de compra que limita a alta. Proteção quase sem custo.',
+     r:'Ideal se você já tem ações e quer protegê-las sem desembolsar um prêmio alto.'},
+    {t:'Estrutura com garantia',i:'ti-lock',tag:'Sem custódia',
+     d:'Permite montar a proteção <b>sem precisar ter as ações</b> na carteira — usando CDBs ou títulos públicos como garantia. O capital continua rendendo enquanto a estrutura trabalha.',
+     r:'Flexível para quem quer proteção sem imobilizar a posição.'}
+  ],
+  timing:[
+    {t:'Estrutura com liquidação antecipada',i:'ti-clock-bolt',tag:'Sem cravar o timing',
+     d:'Monta uma proteção com prazo, mas que pode ser <b>liquidada antes</b> quando o ativo cai — travando o lucro da proteção e permitindo recomprar o ativo mais barato.',
+     r:'Foi exatamente a lógica usada em Vale: sair antes da queda e voltar em preço melhor.'},
+    {t:'Capital Protegido',i:'ti-shield-check',tag:'Proteção total',
+     d:'No vencimento você recebe <b>pelo menos o investido</b>, com participação na alta até um teto. Remove a pressão de acertar o momento exato de entrada.',
+     r:'Te dá um horizonte definido em vez de decisões no calor do momento.'},
+    {t:'Estrutura com garantia',i:'ti-lock',tag:'Sem custódia',
+     d:'Monta a operação usando renda fixa como garantia, <b>sem imobilizar</b> o ativo. Você mantém liquidez enquanto a estratégia roda.',
+     r:'Útil pra quem quer flexibilidade de entrada e saída.'}
+  ],
+  parado:[
+    {t:'Capital Protegido',i:'ti-shield-check',tag:'Renda + proteção',
+     d:'Coloca o <b>capital parado para trabalhar</b> na bolsa com proteção total no vencimento: você participa da alta sem arriscar o principal.',
+     r:'Tira seu dinheiro da inércia sem te expor ao risco que te preocupa.'},
+    {t:'Estrutura com garantia',i:'ti-lock',tag:'Renda fixa trabalhando',
+     d:'Usa seus CDBs/Tesouro como <b>garantia</b> de uma estrutura de bolsa — o capital continua rendendo em renda fixa enquanto a operação busca a alta.',
+     r:'Faz o mesmo dinheiro render em duas frentes ao mesmo tempo.'},
+    {t:'Collar (proteção de baixo custo)',i:'ti-arrows-minimize',tag:'Custo reduzido',
+     d:'Trava uma faixa de resultado com proteção quase sem custo, ideal para posições que você quer manter mas ver render com segurança.',
+     r:'Segurança para o capital sair da poupança mental.'}
+  ],
+  orientacao:[
+    {t:'Capital Protegido',i:'ti-shield-check',tag:'Proteção total',
+     d:'No vencimento você recebe <b>pelo menos o investido</b>, participando da alta até um teto — a porta de entrada mais segura para operações estruturadas.',
+     r:'O time monta e acompanha; você não precisa entender a mecânica.'},
+    {t:'Collar (proteção de baixo custo)',i:'ti-arrows-minimize',tag:'Custo reduzido',
+     d:'Protege uma posição existente travando uma faixa de resultado, com custo baixo. Proteção na queda financiada por um teto na alta.',
+     r:'Orientação prática para proteger o que você já tem.'},
+    {t:'Estrutura com garantia',i:'ti-lock',tag:'Sem custódia',
+     d:'Monta a operação com renda fixa como garantia, sem precisar ter as ações. Flexibilidade total com acompanhamento profissional.',
+     r:'A orientação certa para dar o primeiro passo com segurança.'}
+  ]
+};
+const CASO={
+  protecao:{t:'Lojas Americanas',p:'Quando a Americanas desabou e as ações despencaram de R$ 13 para menos de R$ 1, uma cliente da Focus tinha uma estrutura montada que <b>eliminava 100% do risco de queda</b>. A posição, que teria virado pó, foi integralmente preservada. É esse chão que a proteção te dá.'},
+  timing:{t:'Vale',p:'Em Vale, quando a ação caiu de R$ 89 para R$ 63, a estrutura permitiu <b>liquidar a proteção antecipadamente</b>, embolsar o lucro e usar o recurso para recomprar mais ações a preço depreciado — aumentando a posição sem precisar acertar o fundo.'},
+  parado:{t:'Banco do Brasil',p:'Em Banco do Brasil, um cliente com posição relevante montou uma estrutura que <b>protegia 100% da queda</b> e ainda permitia capturar até <b>40% da alta</b>, sem se desfazer da posição e mantendo o direito aos dividendos.'},
+  orientacao:{t:'Banco do Brasil',p:'Em Banco do Brasil, a estrutura protegia 100% do capital na queda e capturava até 40% da alta — com o time montando e acompanhando, o cliente não precisou entender a mecânica dos derivativos.'}
+};
+
+const A=arch();
+const now=new Date();
+$('h1').innerHTML=`Olá, ${primeiro}. Aqui está a sua análise${sc?` — <span style="color:var(--gd)">${sc}% de aderência</span>`:''}.`;
+$('meta').innerHTML=`<span><b>Perfil:</b> ${A.n}</span><span><b>Emitido em:</b> ${now.getDate()} de ${MESES[now.getMonth()]} de ${now.getFullYear()}</span><span><b>Referência:</b> FOCUS-${(sc*7%9000+1000)|0}</span>`;
+
+const structs=STRUCTS[dor]||STRUCTS.orientacao;
+const caso=CASO[dor]||CASO.orientacao;
+const alloc=TKL[ca];
+
+const tierIntro={
+  prioritario:`${primeiro}, seu perfil reúne os três sinais que mais importam: você tem capacidade, clareza da sua dor e momento para agir. As estruturas abaixo foram selecionadas exatamente para o seu caso.`,
+  qualificado:`${primeiro}, faz total sentido essas estruturas entrarem no seu radar. Você tem com o que trabalhar — falta montar a estrutura no seu tamanho.`,
+  aquecendo:`${primeiro}, você está no caminho certo. Este material te prepara: quando o momento fizer sentido, você já vai saber por onde começar.`,
+  construcao:`${primeiro}, este material é o seu ponto de partida. Essas operações ganham tração a partir de R$ 100 mil alocáveis — e quando você chegar lá, vai estar pronto.`
+};
+
+$('content').innerHTML=`
+  <div class="sec">
+    <div class="lbl"><i class="ti ti-user-star"></i> Seu perfil de investidor</div>
+    <div class="archrow">
+      <div class="archicon"><i class="ti ${A.i}"></i></div>
+      <div><div class="an">${A.n}</div><div class="as">Baseado nas suas respostas</div></div>
+    </div>
+    <p>${A.d}</p>
+    <p>${tierIntro[tier]||tierIntro.qualificado}</p>
+    <div class="metrics">
+      <div class="metric"><div class="mv">${capV()}</div><div class="ml">Capacidade</div></div>
+      <div class="metric"><div class="mv">${intV()}</div><div class="ml">Intenção</div></div>
+      <div class="metric"><div class="mv">${necV()}</div><div class="ml">Necessidade</div></div>
+      <div class="metric"><div class="mv">${famLabel()}</div><div class="ml">Familiaridade</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="lbl"><i class="ti ti-stethoscope"></i> Seu diagnóstico</div>
+    <h2>O que os seus dados revelam</h2>
+    <p>Você é um investidor <b>${EXPL[ei]}</b> e hoje está <b>${ADVL[ai]}</b>. Seu patrimônio está na faixa <b>${CAPL[ci]}</b> e você consideraria alocar <b>${TKL[ca]}</b> nesse tipo de operação, com horizonte <b>${TML[ti]}</b>.</p>
+    <p>O ponto central: a sua principal preocupação hoje aponta para <em>${dor==='protecao'?'proteger o capital contra quedas fortes':dor==='timing'?'não depender de acertar o momento de comprar e vender':dor==='parado'?'fazer o capital parado render com segurança':'ter orientação real, não venda de produto'}</em>. É exatamente isso que as operações estruturadas endereçam — e é por isso que elas fazem sentido no seu caso.</p>
+  </div>
+
+  <div class="sec">
+    <div class="lbl"><i class="ti ti-bookmark"></i> Um caso real parecido com o seu</div>
+    <h2>${caso.t}</h2>
+    <p>${caso.p}</p>
+    <p style="font-size:11px;opacity:.7">Caso real de cliente da Focus Invest. Resultados passados não garantem resultados futuros.</p>
+  </div>
+
+  <div class="sec">
+    <div class="lbl"><i class="ti ti-stack-2"></i> Estruturas recomendadas para o seu perfil</div>
+    <h2>Três caminhos possíveis</h2>
+    <p style="margin-bottom:16px">Selecionadas a partir da sua dor e do seu momento. Na conversa, o time desenha a que melhor se encaixa — no tamanho de <b>${alloc.toLowerCase()}</b>.</p>
+    ${structs.map(s=>`<div class="struct"><h3><i class="ti ${s.i}"></i> ${s.t}<span class="stag">${s.tag}</span></h3><p>${s.d}</p><div class="rec"><i class="ti ti-arrow-badge-right" style="font-size:15px"></i><span>${s.r}</span></div></div>`).join('')}
+  </div>
+
+  <div class="sec">
+    <div class="lbl"><i class="ti ti-chart-arrows-vertical"></i> Como sua estrutura se comporta</div>
+    <h2>Os três cenários, desenhados antes</h2>
+    <p style="margin-bottom:14px">A grande diferença de uma operação estruturada: você conhece todos os cenários <b>antes</b> de entrar. Para uma estrutura de capital protegido:</p>
+    <div class="scen">
+      <div class="scenrow down"><div class="si"><i class="ti ti-trending-down"></i></div><div><div class="st">Se o mercado cair</div><div class="sd">Seu capital investido é preservado — no vencimento você recebe de volta pelo menos o que aplicou. A queda não te atinge.</div></div></div>
+      <div class="scenrow up"><div class="si"><i class="ti ti-trending-up"></i></div><div><div class="st">Se o mercado subir</div><div class="sd">Você participa da alta até o teto definido no início da operação — capturando o ganho sem ter corrido o risco da queda.</div></div></div>
+      <div class="scenrow flat"><div class="si"><i class="ti ti-arrow-right"></i></div><div><div class="st">Se ficar de lado</div><div class="sd">O capital permanece preservado, com custo de oportunidade baixo — você não perde o principal esperando o movimento.</div></div></div>
+    </div>
+    <p style="margin-top:14px;font-size:12px;opacity:.8">Os parâmetros exatos (teto de alta, prazo, ativo de referência) são definidos na montagem, conforme o cenário de mercado e o seu objetivo.</p>
+  </div>
+
+  <div class="sec">
+    <div class="lbl"><i class="ti ti-route"></i> Seus próximos passos</div>
+    <h2>Como sair do papel</h2>
+    <ol class="steps">
+      <li><b>Agende a conversa gratuita</b> com o time da Focus — é individual e sem compromisso.</li>
+      <li><b>O time desenha a estrutura</b> no seu tamanho (${alloc.toLowerCase()}), com todos os cenários na mesa.</li>
+      <li><b>Você decide no seu ritmo.</b> A única exigência para operar é ter conta na XP com a Focus como assessoria — e a gente te orienta nisso.</li>
+    </ol>
+  </div>
+`;
+
+window.R_wa=()=>{const msg=encodeURIComponent(`Olá! Recebi minha análise de operações estruturadas (perfil: ${A.n}). Sou o(a) ${primeiro} e gostaria de conversar sobre montar a estrutura no meu caso.`);window.open('https://wa.me/'+WA_TEAM+'?text='+msg,'_blank');};
+window.R_agendar=()=>{const q=new URLSearchParams({n:nome,w:w,e:'',p:tier==='prioritario'?'prioritario':'compativel',tk:TKL[ca],tm:TML[ti],dor:dor,sc:String(sc)}).toString();location.href='agendamento.html?'+q;};
+function toast(m){const n=$('notice');n.textContent=m;n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2600);}
+window.R_pdf=()=>{
+  toast('Gerando seu PDF…');
+  const el=$('doc');
+  if(!window.html2canvas||!window.jspdf){window.print();return;}
+  html2canvas(el,{scale:2,backgroundColor:'#0e2733',useCORS:true,logging:false}).then(canvas=>{
+    const {jsPDF}=window.jspdf;const pdf=new jsPDF('p','mm','a4');
+    const pw=210,ph=297,iw=pw,ih=canvas.height*pw/canvas.width;
+    let left=ih,pos=0;pdf.addImage(canvas.toDataURL('image/png'),'PNG',0,0,iw,ih);left-=ph;
+    while(left>0){pos=left-ih;pdf.addPage();pdf.addImage(canvas.toDataURL('image/png'),'PNG',0,pos,iw,ih);left-=ph;}
+    pdf.save('analise-focus-'+primeiro.toLowerCase()+'.pdf');
+  }).catch(()=>{window.print();});
+};
+})();
+</script>
+</body>
+</html>

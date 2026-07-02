@@ -6,16 +6,20 @@
 <title>Focus Invest — Funil de Estruturadas (índice)</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
 <style>
-  body{margin:0;background:#070d18;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px}
+  body{margin:0;background:#07161e;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px}
   #host{width:100%;max-width:680px}
 </style>
 </head>
 <body>
 <div id="host">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 .IX *{box-sizing:border-box;margin:0;padding:0}
-.IX{--nv:#0A1628;--nv2:#132240;--nv3:#0F1B30;--gd:#C9A84C;--gd-l:#F5E6B8;--gd-d:#8B6914;--tx:#E7ECF5;--tx2:#9DAAC0;--hl:#25324a;font-family:'Inter',sans-serif}
+.IX{--nv:#0e2733;--nv2:#123245;--nv3:#0b202b;--gd:#bfa174;--gd-l:#d8c39c;--gd-d:#8f7748;--tx:#ffffff;--tx2:#a6b5c1;--hl:#244a5e;font-family:'Poppins',sans-serif}
+.ixtop{display:flex;justify-content:center;padding:18px 0 0}
+.ixtop img{height:32px;opacity:.95}
+.ixfoot{border-top:1px solid var(--hl);margin-top:6px;padding:18px 1.25rem 22px;text-align:center}
+.ixfoot .lg{font-size:9.5px;color:var(--tx2);opacity:.6;line-height:1.5;text-align:justify;margin-top:10px}
 .stage{background:var(--nv);border:1px solid rgba(201,168,76,.18);border-radius:18px;overflow:hidden;position:relative;color:var(--tx)}
 .stage::before{content:'';position:absolute;top:0;left:0;right:0;height:160px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(201,168,76,.10) 0%,transparent 70%);pointer-events:none}
 .fade-in{animation:fu .5s cubic-bezier(.4,0,.2,1) both}
@@ -50,16 +54,17 @@
 
 <div class="IX">
   <div class="stage fade-in">
+    <div class="ixtop"><img src="assets/logo-focus.png" alt="Focus Invest"></div>
     <div class="head">
-      <div class="eye">FOCUS INVEST · CAMPANHA OPERAÇÕES ESTRUTURADAS</div>
+      <div class="eye">CAMPANHA OPERAÇÕES ESTRUTURADAS</div>
       <h1>Funil interativo — índice de links</h1>
       <p>Todas as peças do funil de captação e qualificação de leads, reunidas em um só lugar.</p>
     </div>
     <div class="body">
       <div class="flow">
         <span class="fp">Anúncio / vídeo</span><i class="ti ti-arrow-right"></i>
-        <span class="fp">Quiz de qualificação</span><i class="ti ti-arrow-right"></i>
-        <span class="fp">Agendamento</span><i class="ti ti-arrow-right"></i>
+        <span class="fp">Quiz</span><i class="ti ti-arrow-right"></i>
+        <span class="fp">Análise + Agendamento</span><i class="ti ti-arrow-right"></i>
         <span class="fp">Time comercial</span>
       </div>
 
@@ -81,7 +86,16 @@
         <i class="ti ti-external-link go"></i>
       </a>
 
-      <div class="sec-t">Testar o agendamento isolado</div>
+      <a class="lnk" href="relatorio.html?n=Ana%20Paula&w=51998877665&tier=prioritario&dor=protecao&sc=92&ci=3&ca=3&ei=2&ai=3&ti=0&fam=3">
+        <div class="ic"><i class="ti ti-file-analytics"></i></div>
+        <div class="meta">
+          <div class="tt">Análise aprofundada (entregável) <span class="badge step">PDF + WhatsApp</span></div>
+          <div class="dd">Relatório personalizado que o lead recebe: perfil, estruturas recomendadas, cenários e próximos passos. Com botão de baixar PDF e falar no WhatsApp. (Exemplo com lead fictício.)</div>
+        </div>
+        <i class="ti ti-external-link go"></i>
+      </a>
+
+      <div class="sec-t">Testar isolado</div>
       <a class="lnk" href="agendamento.html?n=Ana%20Paula&w=51998877665&e=ana@email.com&p=prioritario">
         <div class="ic"><i class="ti ti-user-check"></i></div>
         <div class="meta">
@@ -95,7 +109,15 @@
         <b>Como o funil conecta:</b> ao concluir o quiz, um lead qualificado clica em "Agendar conversa gratuita" e é levado ao agendamento já com seus dados (nome, WhatsApp, e-mail, perfil) via parâmetros na URL — sem precisar digitar de novo. Na produção, esses dados também vão para o CRM/RD Station.
       </div>
 
-      <div class="seal">Focus Invest · Escritório credenciado XP Investimentos · CNPJ 00.000.000/0001-00<br>Resultados passados não garantem resultados futuros.</div>
+    </div>
+    <div class="ixfoot">
+      <img src="assets/logo-focus.png" alt="Focus Invest" style="height:24px;opacity:.7">
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:12px 0 0">
+        <a href="https://focusinvestimentos.com/" target="_blank" rel="noopener" style="font-size:12px;color:var(--gd-l);text-decoration:none">Site</a>
+        <a href="https://focusinvestimentos.com/contato/" target="_blank" rel="noopener" style="font-size:12px;color:var(--gd-l);text-decoration:none">Contato</a>
+        <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener" style="font-size:12px;color:var(--gd-l);text-decoration:none">Política de Privacidade</a>
+      </div>
+      <div class="lg">A Focus Invest Agente Autônomo de Investimentos Ltda, inscrita sob o CNPJ 089246170001-05 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 (“Sociedade”), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. (“XP”) e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone 0800 722 3730.</div>
     </div>
   </div>
 </div>
