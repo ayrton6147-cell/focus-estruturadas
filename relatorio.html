@@ -76,7 +76,15 @@ body{background:#07161e;font-family:'Poppins',sans-serif;color:var(--tx);padding
 .notice{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--nv2);border:1px solid var(--gd);color:var(--gd-l);font-size:12.5px;padding:10px 18px;border-radius:10px;opacity:0;transition:opacity .25s;z-index:20}
 .notice.show{opacity:1}
 @media (max-width:520px){.metrics{grid-template-columns:1fr 1fr}.dhead,.sec,.actions,.foot{padding-left:20px;padding-right:20px}.foot .legal{text-align:left}}
-@media print{body{background:#fff;padding:0}.actions{display:none}.notice{display:none}.doc{border:none;border-radius:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+@page{margin:12mm 10mm}
+@media print{
+  body{background:#fff;padding:0}
+  .actions,.notice{display:none}
+  .doc{border:none;border-radius:0;max-width:100%}
+  .sec,.struct,.scenrow,.metric,.archrow,.steps li{break-inside:avoid}
+  .dhead{break-after:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 </head>
 <body>
@@ -105,14 +113,12 @@ body{background:#07161e;font-family:'Poppins',sans-serif;color:var(--tx);padding
         <a href="https://focusinvestimentos.com/contato/" target="_blank" rel="noopener">Contato</a>
         <a href="https://focusinvestimentos.com/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
       </div>
-      <div class="legal">A Focus Invest Agente Autônomo de Investimentos Ltda, inscrita sob o CNPJ 08.924.617/0001-05 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 (“Sociedade”), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. (“XP”) e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone 0800 722 3730.</div>
+      <div class="legal">A Focus Invest Agente Autônomo de Investimentos Ltda, inscrita sob o CNPJ 08.924.617/0001-05 é uma empresa de Assessoria de Investimento devidamente registrada na Comissão de Valores Mobiliários na forma da Resolução CVM 178/23 (“Sociedade”), que mantém contrato de distribuição de produtos financeiros com a XP Investimentos Corretora de Câmbio, Títulos e Valores Mobiliários S.A. (“XP”) e pode, por conta e ordem dos seus clientes, operar no mercado de capitais segundo a legislação vigente. Na forma da legislação da CVM, o Assessor de Investimento não pode administrar ou gerir o patrimônio de investidores. O investimento em ações é um investimento de risco e rentabilidade passada não é garantia de rentabilidade futura. Na realização de operações com derivativos existe a possibilidade de perdas superiores aos valores investidos, podendo resultar em significativas perdas patrimoniais. A Sociedade poderá exercer atividades complementares relacionadas aos mercados financeiro, securitário, de previdência e capitalização, desde que não conflitem com a atividade de assessoria de investimentos, podendo ser realizada por meio da pessoa jurídica acima descrita ou por meio de pessoa jurídica terceira. Todas as atividades são prestadas mantendo a devida segregação e em cumprimento ao quanto previsto nas regras da CVM ou de outros órgãos reguladores e autorreguladores. Para informações e dúvidas sobre produtos, contate seu assessor de investimentos. Para reclamações, contate a Ouvidoria da XP pelo telefone 0800 722 3730.</div>
     </div>
   </div>
 </div>
 <div class="notice" id="notice"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 (function(){
 const $=id=>document.getElementById(id);
@@ -276,17 +282,9 @@ window.R_wa=()=>{const msg=encodeURIComponent(`Olá! Recebi minha análise de op
 window.R_agendar=()=>{const q=new URLSearchParams({n:nome,w:w,e:'',p:tier==='prioritario'?'prioritario':'compativel',tk:TKL[ca],tm:TML[ti],dor:dor,sc:String(sc)}).toString();location.href='agendamento.html?'+q;};
 function toast(m){const n=$('notice');n.textContent=m;n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2600);}
 window.R_pdf=async()=>{
-  toast('Gerando seu PDF…');
-  const el=$('doc');
-  if(!window.html2canvas||!window.jspdf){window.print();return;}
   try{ if(document.fonts&&document.fonts.ready){await document.fonts.ready;} }catch(e){}
-  html2canvas(el,{scale:2,backgroundColor:'#0e2733',useCORS:true,logging:false}).then(canvas=>{
-    const {jsPDF}=window.jspdf;const pdf=new jsPDF('p','mm','a4');
-    const pw=210,ph=297,iw=pw,ih=canvas.height*pw/canvas.width;
-    let left=ih,pos=0;pdf.addImage(canvas.toDataURL('image/png'),'PNG',0,0,iw,ih);left-=ph;
-    while(left>0){pos=left-ih;pdf.addPage();pdf.addImage(canvas.toDataURL('image/png'),'PNG',0,pos,iw,ih);left-=ph;}
-    pdf.save('analise-focus-'+primeiro.toLowerCase()+'.pdf');
-  }).catch(()=>{window.print();});
+  toast('Abrindo a impressão — escolha “Salvar como PDF”.');
+  setTimeout(()=>window.print(),200);
 };
 })();
 </script>
